@@ -1,7 +1,7 @@
 [background arg="res://Bg/faculty_exam.png" fade="0.0"]
 Someone took the exam envelope last night. We’ll suspend the test until we find it. \
 No one may leave the room without permission.
-[background arg="res://Bg/upscalemedia-transformed.png" fade="2.0"]
+[background arg="res://Bg/hallway.png" fade="2.0"]
 [wait time="2.0"]
 join Conrad (full) center [animation="Fade In" length="2.0" wait="true"]
 Outside, near the student bulletin, Conrad Santos listened quietly.\

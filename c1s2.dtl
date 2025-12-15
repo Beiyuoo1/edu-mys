@@ -8,6 +8,24 @@ Conrad: Alright fine. We can just talk through messages just in case I need you 
 Mark: Alright.
 leave Mark
 A Janitor enters the classroom
-join "Janitor Fred" rightmost
+leave Conrad
+join "Janitor Fred" (Janitor_full) rightmost
+update "Janitor Fred" (Janitor_half) right [move_time="2.0"]
+join Conrad (half) left
 Conrad: Excuse me sir, Are you in a rush?
 "Janitor Fred": No young man, what do you need from me?
+Conrad: I noticed earlier today that there seems to be a problem with the exam papers? Do you know what that's  about?
+"Janitor Fred": I overheard them at the faculty earlier panicking about how the exam papers are ruined because they got wet. One airconditioning unit in the faculty room started leaking yesterday and it only got noticed by the English teacher in the morning  as she was the earliest to arrive in the faculty room.
+Conrad: Huh, those looked pretty new from what i can remember.
+"Janitor Fred": That is why the principal is so mad, he called the store that the airconditioner was bought from to complain. The store is sending a repair guy.
+Conrad: Do you know when the repair guy will arrive?
+"Janitor Fred": He'll probably arrive anytime now. I heard the principal say that it will probably be after classes are done for the day.
+Conrad: Thanks for answering my questions.
+"Janitor Fred": No problem kid.
+leave "Janitor Fred"
+Janitor leaves the room after checking how dirty it is, but does not clean the rom yet.
+Conrad: Hmmm, nothing is really suspicious from what i have gathered so far.
+Conrad: But i am getting this particular feeling from the current circumstances. Considering the source of it is a supernatural being, I should keep diggin for more information. I'll ask Diwata Laya later when she wakes up.
+leave --All-- [animation="Slide To Right"]
+Conrad goes out of the room and heads for the faculty room.
+jump c1s3/

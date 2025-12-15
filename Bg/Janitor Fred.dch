@@ -10,7 +10,7 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Janitor_full",
+&"default_portrait": "Janitor_half",
 &"description": "",
 &"display_name": "Janitor Fred",
 &"mirror": false,
@@ -24,7 +24,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": ""
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 },
 "Janitor_half": {
 "export_overrides": {
@@ -32,8 +32,8 @@
 },
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
+"scale": 0.8,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },
 &"scale": 1.0

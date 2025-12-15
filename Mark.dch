@@ -10,7 +10,7 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Mark_full",
+&"default_portrait": "Mark_half",
 &"description": "",
 &"display_name": "Mark",
 &"mirror": false,
@@ -24,7 +24,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1.0,
-"scene": ""
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 },
 "Mark_half": {
 "export_overrides": {

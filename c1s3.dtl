@@ -1,0 +1,53 @@
+[background arg="res://Bg/faculty_few.png" fade="0.0"]
+Conrad enters the school faculty room. He sees that some teachers and student are doing schoolwork.
+He sees the Principal and approaches him.
+join "Principal Alan" (Principal_half) right
+join Conrad (half) left
+Conrad: Excuse me Principal Alan, do you have time to talk sir?
+"Principal Alan": Classes are over, you should head home as soon as possible to stay out of trouble. However, students do have a right to ask their principal for advice.
+"Principal Alan": Fine, go ahead and ask me anything.
+Conrad: I'm just curious about the ruined exam papers. Is it true that they ruined to the point that they can't be graded?
+"Principal Alan": Yes, it's true. All of the exam papers of Grade 12-A are wet. Thankfully the exam papers of Grade 12-B  weren't included.
+Conrad: Can I take a look at the place where it happend sir?
+"Principal Alan": It was already cleaned up earlier, here take a look. I took a photo of the mess earlier since the store where the leaking airconditioner was bought didn't believe that the airconditioner was leaking
+leave --All--
+[background arg="res://Pics/Exam_ruined.png" fade="0.0"]
+Conrad (none): (Hmmm...... the water seems to be a bit too much from only a natural leak. The amount of water looks more like from a pipe instead of a leak.
+[background arg="res://Pics/Ac_leak.png" fade="0.0"]
+label Deduction
+What's wrong with this picture?
+- The airconditioning unit looks old so it was only natural that it leaked
+	jump After
+- The tube leading to the outside were the "leak" supposedly is looks like it was cut with something sharp only on the top part and the part where wall is not covering it.
+	jump Deduction
+- The tube where the leak is looks like it was bitten by an animal.
+	jump Deduction
+label After
+join Conrad (half) left
+Conrad: Sir Alan, the damage to the tube of the airconditioner looks like it was cut with something.
+join "Principal Alan" (Principal_half) right
+"Principal Alan": Are you sure? Because if this was not caused by natural wear and tear thne the school will need to pay for the repair.
+[background arg="res://Bg/faculty_few.png" fade="0.0"]
+Conrad: I am sure, why would the leak be at the top of the tube if it was natural wear and tear.
+"Principal Alan": Are you saying that this was caused by a person? Why would someone do this?
+Conrad: Considering that this incident made it so that the exam papers cannot be graded. The motive should be to cause a retake.
+"Principal Alan": And because they already took the exam, even though the exam questions will be altered. The exam will be much easier since we have a deadline to follow so we cant rigorously alter the exam questions.
+Conrad: Correct Sir
+"Principal Alan": As an educator this is unacceptable, but I can't really investigate this myself since the 3rd grading is ending and I have too much work to finish.
+Conrad: Can I investigate this in your stead sir?
+"Principal Alan": Are you sure? Are all you school work already done? If not then I can't let you ignore your reponsibilities while you investigate this.
+Conrad: All my exams are already done and I have already passed all my requirements.
+"Principal Alan": Fine, you investigate this matter. I'll inform the staff and teachers to cooperate.
+Conrad: Leave it to me sir.
+"Principal Alan": Good.
+leave Conrad [animation="Slide To Left"]
+Conrad leaves the faculty room and hangs out in the hallway.
+leave "Principal Alan" [animation="Fade Out" length="0.1"]
+[background arg="res://Bg/hallway.png" fade="0.0"]
+join Conrad center
+Conrad: (Hmmmmm...... Who would have the motive to the destroy the exam papers so that they can take the a re-examination.
+Conrad: ( Ofcourse the students of 12-A are definitely suspects but its gonna take a long time to question them all individually, which makes it im possible to catch them before the grades are permanently recorded.)\
+( It would also alert the perp which makes the investigation harder.)
+( Also it wouldn't be impossible for this to be coordinated by multiple people)
+Conrad: Ughhhh... This is so Hard. Why did I think that i could do this.
+join  center

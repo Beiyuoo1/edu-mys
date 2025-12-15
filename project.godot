@@ -23,12 +23,15 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "Conrad": "res://Conrad.dch",
+"Diwata Laya": "res://Bg/Diwata Laya.dch",
 "Janitor Fred": "res://Bg/Janitor Fred.dch",
-"Mark": "res://Mark.dch"
+"Mark": "res://Mark.dch",
+"Principal Alan": "res://Bg/Principal.dch"
 }
 directories/dtl_directory={
 "c1s1": "res://timeline.dtl",
-"c1s2": "res://c1s2.dtl"
+"c1s2": "res://c1s2.dtl",
+"c1s3": "res://c1s3.dtl"
 }
 layout/style_directory={
 "": "res://New_File.tres",
@@ -71,6 +74,11 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
