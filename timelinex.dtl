@@ -1,0 +1,8 @@
+[background arg="res://Bg/hallway.png" fade="0.0"]
+sadlfjas;ldfla;s
+join Conrad (half) left
+label choice
+- yes
+- no
+	jump choice
+<Empty Text Event>

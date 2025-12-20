@@ -26,12 +26,14 @@ directories/dch_directory={
 "Diwata Laya": "res://Bg/Diwata Laya.dch",
 "Janitor Fred": "res://Bg/Janitor Fred.dch",
 "Mark": "res://Mark.dch",
-"Principal Alan": "res://Bg/Principal.dch"
+"Principal": "res://Bg/Principal.dch",
+"character": "res://Bg/character.dch"
 }
 directories/dtl_directory={
-"c1s1": "res://timeline.dtl",
+"c1s1": "res://Timeline.dtl",
 "c1s2": "res://c1s2.dtl",
-"c1s3": "res://c1s3.dtl"
+"c1s3": "res://c1s3.dtl",
+"timelinex": "res://timelinex.dtl"
 }
 layout/style_directory={
 "": "res://New_File.tres",
