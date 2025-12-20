@@ -30,9 +30,9 @@ directories/dch_directory={
 "character": "res://Bg/character.dch"
 }
 directories/dtl_directory={
-"c1s1": "res://Timeline.dtl",
 "c1s2": "res://c1s2.dtl",
 "c1s3": "res://c1s3.dtl",
+"timeline": "res://timeline.dtl",
 "timelinex": "res://timelinex.dtl"
 }
 layout/style_directory={
