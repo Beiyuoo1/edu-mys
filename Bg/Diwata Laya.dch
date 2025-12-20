@@ -68,7 +68,7 @@
 },
 "mirror": true,
 "offset": Vector2(0, 0),
-"scale": 0.8,
+"scale": 0.7,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 }
 },

@@ -17,9 +17,9 @@ Conrad (none): (Hmmm...... the water seems to be a bit too much from only a natu
 label Deduction
 What's wrong with this picture?
 - The airconditioning unit looks old so it was only natural that it leaked
-	jump After
-- The tube leading to the outside were the "leak" supposedly is looks like it was cut with something sharp only on the top part and the part where wall is not covering it.
 	jump Deduction
+- The tube leading to the outside were the "leak" supposedly is looks like it was cut with something sharp only on the top part and the part where wall is not covering it.
+	jump After
 - The tube where the leak is looks like it was bitten by an animal.
 	jump Deduction
 label After
@@ -44,13 +44,13 @@ leave Conrad [animation="Slide To Left"]
 Conrad leaves the faculty room and hangs out in the hallway.
 leave "Principal Alan" [animation="Fade Out" length="0.1"]
 [background arg="res://Bg/hallway.png" fade="0.0"]
-join Conrad center
+join Conrad left
 Conrad: (Hmmmmm...... Who would have the motive to the destroy the exam papers so that they can take the a re-examination.
 Conrad: ( Ofcourse the students of 12-A are definitely suspects but its gonna take a long time to question them all individually, which makes it im possible to catch them before the grades are permanently recorded.)\
 ( It would also alert the perp which makes the investigation harder.)
 ( Also it wouldn't be impossible for this to be coordinated by multiple people)
 Conrad: Ughhhh... This is so Hard. Why did I think that i could do this.
-join "Diwata Laya" right
+join "Diwata Laya" (Half_mirror) right
 "Diwata Laya": It's alright you can do this.
 Conrad: Looks like you're awake. Good timing I solved other mysteries before but they weren't under a deadline.
 "Diwata Laya": Last time, it took me too much energy so I had to rest. I've recovered mostly but the help I can give is limited.
