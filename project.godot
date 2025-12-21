@@ -27,13 +27,15 @@ directories/dch_directory={
 "Janitor Fred": "res://Bg/Janitor Fred.dch",
 "Mark": "res://Mark.dch",
 "Principal": "res://Bg/Principal.dch",
-"character": "res://Bg/character.dch"
+"Sprites/character": "res://Sprites/character.dch",
+"character": "res://Bg/character.dch",
+"example character": "res://example character.dch"
 }
 directories/dtl_directory={
+"c1s1": "res://Timeline.dtl",
 "c1s2": "res://c1s2.dtl",
 "c1s3": "res://c1s3.dtl",
-"timeline": "res://timeline.dtl",
-"timelinex": "res://timelinex.dtl"
+"example": "res://example.dtl"
 }
 layout/style_directory={
 "": "res://New_File.tres",

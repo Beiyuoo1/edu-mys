@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Dialogic.start("c1s3")
+	Dialogic.start("c1s1")
 	pass # Replace with function body.
 
 
