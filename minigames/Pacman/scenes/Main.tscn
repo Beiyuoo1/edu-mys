@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhidd7b3e3tap"]
 
-[ext_resource type="Script" uid="uid://cecuopbu4ay8q" path="res://Main.gd" id="1"]
+[ext_resource type="Script" uid="uid://cecuopbu4ay8q" path="res://minigames/Pacman/scripts/Main.gd" id="1"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1")

@@ -1,0 +1,52 @@
+[background arg="res://Bg/hallway.png" fade="1.0"]
+Conrad and Mark track down the students from the logbook.
+join Conrad (half) left
+join Ben (Ben_half) center
+Conrad: Ben, we need to ask you something. Were you near the faculty room yesterday evening?
+Ben: No, I was in the library studying until 6 PM. The librarian can vouch for me.
+join "Diwata Laya" (Half_mirror) rightmost
+"Diwata Laya": (Whispering) He speaks the truth. His flow is calm.
+Conrad: Thanks, Ben. You can go.
+leave Ben
+join Mark (Mark_half) right
+Mark: Okay, that leaves Greg.
+leave --All--
+join Conrad (half) left
+join "Greg" (Greg_half) center
+Conrad: Greg, we need to ask you something. Were you inside the faculty room yesterday?
+"Greg": What? No! I went straight home after class. I wasn't anywhere near there!
+join "Diwata Laya" (Half_mirror) rightmost
+"Diwata Laya": (Whispering) Deceit clouds his words. He is lying.
+Conrad: You're lying, Greg.
+"Greg": I'm not! You have no proof.
+Conrad: Actually, I do. I found this INSIDE the locked faculty room.
+[background arg="res://Pics/Exam_ruined.png" fade="0.0"]
+label Logic_Challenge
+"Diwata Laya": The pattern is 10111. That translates to the number 23.
+Conrad: Student number 23... That's you, Greg. These are your binary practice notes.
+Conrad: If you weren't there, how did your notes end up inside a locked room?
+"Greg": I... I...
+"Greg": (Breaks down) I didn't steal the key! I swear!
+Conrad: Then how did you get in?
+"Greg": Someone gave it to me!
+"Greg": I was panicking about the exam... and then I found an envelope in my locker. It had a key and a note saying "For your problem."
+"Greg": I didn't see who it was. I just wanted to delay the exam!
+Conrad: Do you still have the envelope?
+"Greg": Yes, here.
+Conrad: (Conrad inspects it. There is no name, but a small symbol is stamped on the inside flap: a pixelated spider.)
+join "Principal Alan" (Principal_half) rightmost
+"Principal Alan": I believe I've heard enough.
+"Greg": Principal Alan!
+"Principal Alan": I am disappointed, Greg. But we need to discuss this "mysterious person" who gave you the key. Come to my office.
+"Principal Alan": Conrad, Mark. You have shown great responsibility and intellect. The school thanks you.
+leave "Principal Alan"
+leave "Greg"
+leave "Diwata Laya"
+Conrad: (Sighs) Well, that's case closed.
+Mark: Dude, that was intense! But what was that spider symbol on the envelope?
+Conrad: I don't know yet. But I have a feeling this isn't the last time we'll see it.
+[background arg="res://Bg/classroom.png" fade="2.0"]
+The bell rings for the first period.
+Conrad: Come on, let's get to class. I have a feeling this isn't the last mystery we'll solve.
+Mark: As long as it doesn't involve math next time, I'm in.
+[end_timeline]

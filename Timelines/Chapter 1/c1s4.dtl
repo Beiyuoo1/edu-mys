@@ -1,0 +1,15 @@
+[background arg="res://Bg/hallway.png" fade="1.0"]
+The next day, Conrad meets Mark in the hallway before classes start.
+join Conrad (half) left
+join Mark (Mark_half) right
+Conrad: Mark, I've gone over the evidence regarding the ruined exam papers.
+Mark: Did you find anything new?
+Conrad: The faculty room was locked and there was no forced entry. Whoever did this had a key.
+Mark: A key? But only teachers have those.
+Conrad: Exactly. I also found a strange paper inside the room.
+Conrad: And based on the logbook I checked with Principal Alan, only two students were here late: Ben and Greg.
+Mark: So it has to be one of them.
+join "Diwata Laya" (Half_mirror) rightmost
+"Diwata Laya": I can assist. I will listen to their hearts. If they speak deceit, I will know.
+Conrad: Perfect. Let's go find them.
+jump c1s5/

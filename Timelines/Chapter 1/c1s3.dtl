@@ -18,18 +18,18 @@ label Deduction
 What's wrong with this picture?
 - The airconditioning unit looks old so it was only natural that it leaked
 	jump Deduction
-- The tube leading to the outside were the "leak" supposedly is looks like it was cut with something sharp only on the top part and the part where wall is not covering it.
+- The tube is cut, but the door was locked. How did they get in?
 	jump After
 - The tube where the leak is looks like it was bitten by an animal.
 	jump Deduction
 label After
 join Conrad (half) left
-Conrad: Sir Alan, the damage to the tube of the airconditioner looks like it was cut with something.
+Conrad: Sir Alan, the tube was definitely cut. But there's no sign of forced entry on the door.
 join "Principal Alan" (Principal_half) right
-"Principal Alan": Are you sure? Because if this was not caused by natural wear and tear thne the school will need to pay for the repair.
+"Principal Alan": That is impossible. Only the staff have keys to this room.
 [background arg="res://Bg/faculty_few.png" fade="0.0"]
-Conrad: I am sure, why would the leak be at the top of the tube if it was natural wear and tear.
-"Principal Alan": Are you saying that this was caused by a person? Why would someone do this?
+Conrad: Unless someone stole a key... or was given one.
+"Principal Alan": That implies deliberate sabotage from someone with access. Why would someone do this?
 Conrad: Considering that this incident made it so that the exam papers cannot be graded. The motive should be to cause a retake.
 "Principal Alan": And because they already took the exam, even though the exam questions will be altered. The exam will be much easier since we have a deadline to follow so we cant rigorously alter the exam questions.
 Conrad: Correct Sir
@@ -40,16 +40,24 @@ Conrad: All my exams are already done and I have already passed all my requireme
 "Principal Alan": Fine, you investigate this matter. I'll inform the staff and teachers to cooperate.
 Conrad: Leave it to me sir.
 "Principal Alan": Good.
+Conrad: One more thing, Sir. Is there a logbook of students who stayed late yesterday?
+"Principal Alan": Yes, the guard's logbook is right here. Let me check.
+"Principal Alan": It seems only Ben and Greg from Grade 12-A signed out after 5 PM.
+Conrad: Thank you, Sir. That helps a lot.
 leave Conrad [animation="Slide To Left"]
-Conrad leaves the faculty room and hangs out in the hallway.
-leave "Principal Alan" [animation="Fade Out" length="0.1"]
+Conrad looks around the room one last time before leaving.
+leave "Principal Alan"
+Conrad: Wait, what's this under the AC unit?
+[background arg="res://Pics/Exam_ruined.png" fade="0.0"]
+Conrad: A crumpled piece of paper? It just has black and white squares on it.
+Conrad: It looks like it was dropped recently. This must be a clue.
 [background arg="res://Bg/hallway.png" fade="0.0"]
 join Conrad left
 Conrad: (Hmmmmm...... Who would have the motive to the destroy the exam papers so that they can take the a re-examination.
 Conrad: ( Ofcourse the students of 12-A are definitely suspects but its gonna take a long time to question them all individually, which makes it im possible to catch them before the grades are permanently recorded.)\
 ( It would also alert the perp which makes the investigation harder.)
 ( Also it wouldn't be impossible for this to be coordinated by multiple people)
-Conrad: Ughhhh... This is so Hard. Why did I think that i could do this.
+Conrad: Ughhhh... This is so hard. Why did I think that I could do this.
 join "Diwata Laya" (Half_mirror) right
 "Diwata Laya": It's alright you can do this.
 Conrad: Looks like you're awake. Good timing I solved other mysteries before but they weren't under a deadline.
@@ -58,5 +66,6 @@ Conrad: This case is kinda rough though, I really need your help.
 "Diwata Laya": I've seen what's been happening even though I've been resting for a while. Don't worry too much, do what you can and we'll see how I can help. Since I've recovered quite a bit, my ability to compel people to tell the truth or cooperate has come back to me.
 Conrad: Well that's gonna be super helpful.
 Diwata Ligaya is your helper! She is very intelligent and can help you quite a lot. However she is very limited as she is not allowed to interact much with the human world, so she is limited in the help she can give.
-Conrad: Great, I'll tell Mark the what we've learned later. Help me brainstorm once we get home later.
+Conrad: Great, I'll tell Mark what we've learned later. Help me brainstorm once we get home later.
 "Diwata Laya": Ok.
+jump c1s4/

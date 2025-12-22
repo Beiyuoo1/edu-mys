@@ -1,0 +1,15 @@
+<svg width="500" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(250, 500)">
+    <!-- Body -->
+    <path d="M-150 500 L-150 0 Q-150 -100 0 -100 Q150 -100 150 0 L150 500 Z" fill="#3b4cca" stroke="black" stroke-width="5"/>
+    <!-- Head -->
+    <circle cx="0" cy="-200" r="120" fill="#f1c27d" stroke="black" stroke-width="5"/>
+    <!-- Eyes -->
+    <ellipse cx="-40" cy="-220" rx="15" ry="25" fill="black"/>
+    <ellipse cx="40" cy="-220" rx="15" ry="25" fill="black"/>
+    <!-- Mouth (Nervous) -->
+    <path d="M-30 -150 Q0 -170 30 -150" fill="none" stroke="black" stroke-width="5"/>
+    <!-- Sweat drop -->
+    <path d="M80 -280 Q80 -300 90 -280 Q100 -260 80 -260 Z" fill="#00ffff"/>
+  </g>
+</svg>

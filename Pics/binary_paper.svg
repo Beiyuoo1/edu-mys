@@ -1,0 +1,16 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper Background -->
+  <rect x="56" y="156" width="400" height="200" fill="#fdfdfd" stroke="#aaaaaa" stroke-width="2" rx="5" ry="5"/>
+  
+  <!-- The Code: 1 0 1 1 1 -->
+  <!-- 1: Black -->
+  <rect x="86" y="206" width="60" height="100" fill="#000000" stroke="#000000" stroke-width="2"/>
+  <!-- 0: White -->
+  <rect x="156" y="206" width="60" height="100" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+  <!-- 1: Black -->
+  <rect x="226" y="206" width="60" height="100" fill="#000000" stroke="#000000" stroke-width="2"/>
+  <!-- 1: Black -->
+  <rect x="296" y="206" width="60" height="100" fill="#000000" stroke="#000000" stroke-width="2"/>
+  <!-- 1: Black -->
+  <rect x="366" y="206" width="60" height="100" fill="#000000" stroke="#000000" stroke-width="2"/>
+</svg>

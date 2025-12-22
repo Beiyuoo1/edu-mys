@@ -22,20 +22,22 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Conrad": "res://Conrad.dch",
-"Diwata Laya": "res://Bg/Diwata Laya.dch",
-"Janitor Fred": "res://Bg/Janitor Fred.dch",
-"Mark": "res://Mark.dch",
-"Principal": "res://Bg/Principal.dch",
-"Sprites/character": "res://Sprites/character.dch",
-"character": "res://Bg/character.dch",
-"example character": "res://example character.dch"
+"Ben": "res://Characters/Ben.dch",
+"Conrad": "res://Characters/Conrad.dch",
+"Diwata Laya": "res://Characters/Diwata Laya.dch",
+"Greg": "res://Characters/Greg.dch",
+"Janitor Fred": "res://Characters/Janitor Fred.dch",
+"Mark": "res://Characters/Mark.dch",
+"Principal": "res://Characters/Principal.dch",
+"Sprites/character": "res://Characters/character.dch",
+"character": "res://Characters/character.dch",
+"example character": "res://Characters/example character.dch"
 }
 directories/dtl_directory={
-"c1s1": "res://Timeline.dtl",
-"c1s2": "res://c1s2.dtl",
-"c1s3": "res://c1s3.dtl",
-"timeline": "res://timeline.dtl"
+"c1s1": "res://Timelines/Chapter 1/c1s1.dtl",
+"c1s2": "res://Timelines/Chapter 1/c1s2.dtl",
+"c1s3": "res://Timelines/Chapter 1/c1s3.dtl",
+"c1s4": "res://Timelines/Chapter 1/c1s4.dtl"
 }
 layout/style_directory={
 "": "res://New_File.tres",

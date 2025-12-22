@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://enemy_scene"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Enemy.gd" id="1"]
+[ext_resource type="Script" uid="uid://dl8pvcmx1ym1u" path="res://minigames/Pacman/scripts/Enemy.gd" id="1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(40, 40)

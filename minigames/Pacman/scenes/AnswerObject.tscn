@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://answer_object_scene"]
+[gd_scene load_steps=4 format=3 uid="uid://drseb2moy4x55"]
 
-[ext_resource type="Script" path="res://AnswerObject.gd" id="1"]
+[ext_resource type="Script" uid="uid://c76tkg88ydlih" path="res://minigames/Pacman/scripts/AnswerObject.gd" id="1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(50, 50)
@@ -10,7 +10,6 @@ size = Vector2(50, 50)
 
 [node name="AnswerObject" type="CharacterBody2D"]
 script = ExtResource("1")
-move_speed = 80.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1")

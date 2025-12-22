@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhlrfwnfjpcdd"]
 
-[ext_resource type="Script" uid="uid://d2r0cianxe86a" path="res://fill_in_the_blank.gd" id="1_5u4nt"]
-[ext_resource type="Texture2D" uid="uid://bgxv5886xa6j3" path="res://Bg/door.png" id="1_udqub"]
+[ext_resource type="Script" uid="uid://d2r0cianxe86a" path="res://minigames/Drag/scripts/fill_in_the_blank.gd" id="1_p01xe"]
+[ext_resource type="Texture2D" uid="uid://bgxv5886xa6j3" path="res://Bg/door.png" id="2_bjn30"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u4nt"]
 corner_radius_top_left = 50
@@ -12,7 +12,7 @@ corner_radius_bottom_left = 50
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_5u4nt")
+script = ExtResource("1_p01xe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_udqub")
+texture = ExtResource("2_bjn30")
 expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TextureRect"]

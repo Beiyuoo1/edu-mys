@@ -52,7 +52,7 @@ func spawn_player():
 	if player != null and is_instance_valid(player):
 		player.queue_free()
 	
-	var player_scene = load("res://Player.tscn")
+	var player_scene = load("res://minigames/Pacman/scenes/Player.tscn")
 	player = player_scene.instantiate()
 	var screen_size = get_viewport_rect().size
 	player.position = screen_size / 2  # Center of screen
@@ -68,7 +68,7 @@ func spawn_obstacles():
 	obstacle_objects.clear()
 	
 	var screen_size = get_viewport_rect().size
-	var obstacle_scene = load("res://Obstacle.tscn")
+	var obstacle_scene = load("res://minigames/Pacman/scenes/Obstacle.tscn")
 	
 	# Create maze-like pattern
 	var wall_configs = [
@@ -125,7 +125,7 @@ func spawn_enemies():
 		Vector2(screen_size.x - 100, screen_size.y - 100)
 	]
 	
-	var enemy_scene = load("res://Enemy.tscn")
+	var enemy_scene = load("res://minigames/Pacman/scenes/Enemy.tscn")
 	for pos in enemy_positions:
 		var enemy = enemy_scene.instantiate()
 		enemy.position = pos
@@ -161,7 +161,7 @@ func load_question():
 		Vector2(screen_size.x * 0.85, screen_size.y * 0.7)
 	]
 	
-	var answer_scene = load("res://AnswerObject.tscn")
+	var answer_scene = load("res://minigames/Pacman/scenes/AnswerObject.tscn")
 	for i in range(all_answers.size()):
 		var answer_obj = answer_scene.instantiate()
 		answer_obj.position = positions[i]
