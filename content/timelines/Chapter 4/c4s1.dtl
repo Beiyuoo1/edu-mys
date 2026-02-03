@@ -13,7 +13,7 @@ leave Conrad
 leave Mark
 [background arg="res://Bg/classroom.png" fade="1.0"]
 join Conrad (half) left
-join Ben (half) center
+join Ben (Ben_half) center
 Ben holds a folded piece of paper, looking uncomfortable.
 Ben: I found this in my locker yesterday morning. No idea who put it there.
 Ben hands the note to Conrad.

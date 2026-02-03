@@ -464,6 +464,10 @@ await SaveManager.auto_save()                          # Auto-save (rotating slo
 - `content/timelines/Chapter N/` - Timeline files named `cNsM.dtl` (Chapter N, Scene M)
 - Timeline naming: `c1s1` = Chapter 1 Scene 1, `c1s2b` = Chapter 1 Scene 2 branch
 - `assets/evidence/` - Evidence placeholder images (see README.md in folder)
+- `Pics/` - Custom evidence and scene-specific assets (e.g., Chapter 3 sculpture, evidence photos)
+- `Bg/` - Background scenes and environmental assets
+
+**Asset Style:** Anime visual novel painterly style with soft atmospheric lighting. Assets match Filipino school setting with Spanish colonial architecture and tropical elements.
 
 ### DTL to TXT Converter Tool
 
@@ -593,7 +597,52 @@ To test a chapter directly in Dialogic without starting a new game:
 
 Without these variables, curriculum minigames will fail and freeze the game.
 
-## Recent Changes (2026-02-02)
+## Recent Changes
+
+### 2026-02-03: Chapter 3 Complete Asset Integration
+
+**Chapter 3: Broken Sculpture Mystery** - "The Art of Jealousy"
+
+**Asset Integration:**
+- Integrated 5 custom-generated assets for Chapter 3's art vandalism case
+- All assets use anime visual novel painterly style matching existing game aesthetics
+- Assets located in `Pics/` folder and properly linked to evidence system
+
+**The Sculpture - "Lolo's Hands":**
+- Central artifact: Weathered clay hands cradling an open book with sampaguita flowers
+- Culturally grounded in Filipino values (passing of wisdom, respect for elders)
+- Two visual states:
+  - `sculpture_intact.png` - Shows sculpture in pristine Art Week display
+  - `sculpture_broken.png` - Crime scene showing shattered remains at night
+- Timelines enhanced with dramatic visual reveals using these assets
+
+**Evidence Assets:**
+- `note_threat_c3.png` - Threatening note: "Not everyone deserves to shine"
+- `cloth_paint_c3.png` - Paint-stained cloth with inventory tag linking to Victor
+- `sketchbook_victor_c3.png` - Technical sketchbook with disturbing crossed-out drawings
+- All evidence properly linked in `evidence_manager.gd` replacing placeholders
+
+**Timeline Enhancements:**
+- Added visual storytelling to c3s1: intact sculpture reveal before discovery, broken sculpture crime scene
+- Consistent naming throughout: Changed all "The Reader" references to "Lolo's Hands"
+- Enhanced emotional impact with timed pauses and atmospheric descriptions
+
+**Character Consolidation:**
+- Merged Ms. Reyes role into Ms. Santos (Student Council advisor + Art Teacher)
+- Updated character description to reflect dual responsibilities
+- Maintains "overworked" characterization while reducing sprite requirements
+
+**Evidence System:**
+- 5 evidence items for Chapter 3 (note, cloth, sketchbook, receipt, tagged cloth)
+- Evidence properly unlocks via `[signal arg="unlock_evidence evidence_id"]` in timelines
+- Evidence images display in panel when collected
+
+**Chapter Structure:**
+- c3s0 → c3s1 → c3s2 → c3s3 → c3s4 → c3s5 → c3s6 → c4s0
+- All character sprites working (Mia, Victor, Ms. Santos, Ben)
+- Visual narrative flow: intro → intact sculpture → discovery → investigation → flashback → resolution
+
+### 2026-02-02: Chapter 2 Evidence System
 
 - Added evidence system to Chapter 2 (5 evidence items)
 - Fixed curriculum minigame freeze when config fails

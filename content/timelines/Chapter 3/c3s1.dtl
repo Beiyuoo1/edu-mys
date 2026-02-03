@@ -12,11 +12,16 @@ Conrad: I just pay attention to details.
 Mark: If you say so.
 Mark gestures at the colorful displays surrounding them.
 Mark: Speaking of which - have you seen Mia's sculpture? The one that won regionals?
-Conrad: "The Reader"? I've heard it's the centerpiece of the exhibit.
+Conrad: "Lolo's Hands"? I've heard it's the centerpiece of the exhibit.
 Mark: Let's check it out. Everyone's been talking about it.
 Conrad: Lead the way.
 leave Conrad
 leave Mark
+[background arg="res://Pics/sculpture_intact.png" fade="1.0"]
+[wait time="1.5"]
+The centerpiece stands proudly in the courtyard. "Lolo's Hands" - weathered clay hands cradling an open book, sampaguita flowers sprouting between the fingers.
+A testament to the passing of wisdom. To love. To memory.
+[wait time="1.0"]
 [background arg="res://Bg/courtyard.png" fade="0.5"]
 They walk toward the center of the courtyard.
 A crowd has gathered, but something feels wrong.
@@ -33,10 +38,14 @@ Conrad pushes through the crowd, his detective instincts taking over.
 leave Conrad
 leave Mark
 [wait time="0.5"]
-join Conrad (half) left
+[background arg="res://Pics/sculpture_broken.png" fade="0.5"]
+[wait time="1.5"]
 The sculpture lies shattered on the ground.
 Clay fragments spread across the stone tiles. What was once art is now debris.
 The pedestal stands empty, its plaque a bitter reminder of what was.
+[wait time="1.0"]
+[background arg="res://Bg/courtyard.png" fade="0.5"]
+join Conrad (half) left
 join Mia (half) right
 Mia kneels among the pieces, her hands hovering over the fragments as if afraid to touch them.
 Tears stream silently down her face.

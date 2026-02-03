@@ -83,23 +83,23 @@ var evidence_definitions = {
 	# Chapter 3: Broken Sculpture Mystery
 	"broken_sculpture_note_c3": {
 		"id": "broken_sculpture_note_c3",
-		"title": "Broken Sculpture & Note",
-		"description": "Mia's award-winning sculpture 'The Reader' found completely shattered. A threatening note was left at the scene: 'Not everyone deserves to shine.' The destruction was deliberate and personal.",
-		"image_path": "res://assets/evidence/placeholder_document.png",
+		"title": "Threatening Note",
+		"description": "A threatening note left at the scene of Mia's destroyed sculpture: 'Not everyone deserves to shine.' The neat, deliberate handwriting suggests a calculated, personal attack rather than random vandalism.",
+		"image_path": "res://Pics/note_threat_c3.png",
 		"chapter": 3
 	},
 	"paint_cloth_c3": {
 		"id": "paint_cloth_c3",
 		"title": "Paint-Stained Cloth",
 		"description": "Small piece of paint-stained fabric found among the debris at the crime scene. The cloth has various paint colors and appears to be from an art student's supplies.",
-		"image_path": "res://assets/evidence/placeholder_document.png",
+		"image_path": "res://Pics/cloth_paint_c3.png",
 		"chapter": 3
 	},
 	"victor_sketchbook_c3": {
 		"id": "victor_sketchbook_c3",
 		"title": "Victor's Sketchbook",
 		"description": "Victor Lim's personal sketchbook filled with technical studies. Later pages contain dark, angry sketches including violent imagery. One page shows Mia's sculpture with harsh X marks drawn over it, revealing Victor's resentment.",
-		"image_path": "res://assets/evidence/placeholder_document.png",
+		"image_path": "res://Pics/sketchbook_victor_c3.png",
 		"chapter": 3
 	},
 	"art_store_receipt_c3": {
@@ -112,8 +112,8 @@ var evidence_definitions = {
 	"inventory_tag_cloth_c3": {
 		"id": "inventory_tag_cloth_c3",
 		"title": "Inventory-Tagged Cloth",
-		"description": "The paint cloth found at the scene has an inventory tag number 14-C. Ms. Reyes' records confirm this corresponds to supplies assigned to Victor Lim's cabinet. Physical evidence directly linking Victor to the crime scene.",
-		"image_path": "res://assets/evidence/placeholder_document.png",
+		"description": "The paint cloth found at the scene has an inventory tag number 14-C. Ms. Santos' records confirm this corresponds to supplies assigned to Victor Lim's cabinet. Physical evidence directly linking Victor to the crime scene.",
+		"image_path": "res://Pics/cloth_paint_c3.png",
 		"chapter": 3
 	}
 }

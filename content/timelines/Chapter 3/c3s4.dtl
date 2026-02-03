@@ -88,7 +88,7 @@ update Victor (half) left [move_time="0.3"]
 He picks up his phone, scrolling through photos.
 Victor: And Mia spent... what? A few weeks on hers?
 update Victor (half) center [move_time="0.3"]
-Victor's expression darkens as he stares at a photo of "The Reader."
+Victor's expression darkens as he stares at a photo of "Lolo's Hands."
 Victor: "Emotionally transcendent." That's what the judges said.
 Victor: They didn't even look at mine. One glance and they moved on.
 update Victor (half) right [move_time="0.3"]
@@ -108,7 +108,7 @@ Victor: Tomorrow is Art Week. Everyone will gather around Mia's sculpture.
 Victor: They'll take photos. They'll applaud. They'll call her a genius.
 Victor: And I'll stand next to my perfect, soulless piece... alone.
 update Victor (half) left [move_time="0.3"]
-Victor's eyes drift to "The Reader" visible through the window, illuminated by moonlight in the courtyard.
+Victor's eyes drift to "Lolo's Hands" visible through the window, illuminated by moonlight in the courtyard.
 Victor: Unless...
 He shakes his head violently.
 Victor: No. I can't. That's insane.
@@ -124,8 +124,8 @@ leave Victor [animation="Fade Out" length="0.8"]
 The courtyard lies quiet under a pale moon.
 Student artwork stands arranged on pedestals, waiting for tomorrow's opening.
 [wait time="1.0"]
-In the center, "The Reader" catches the moonlight - a student reading under a tree, carved in clay with loving hands.
-A plaque reads: "The Reader - by Mia Santos. Regional Art Competition Winner."
+In the center, "Lolo's Hands" catches the moonlight - weathered clay hands cradling an open book, sampaguita flowers sprouting between the fingers.
+A plaque reads: "Lolo's Hands - by Mia Santos. Regional Art Competition Winner."
 [wait time="1.5"]
 A shadow moves between the displays.
 join Victor (half) center
@@ -141,7 +141,7 @@ Then - a push.
 [wait time="0.5"]
 leave Victor
 The crash echoes through the empty courtyard.
-Clay and plaster scatter across the ground. The Reader lies in pieces.
+Clay and plaster scatter across the ground. Lolo's Hands lie in pieces - fingers broken, book shattered, sampaguita flowers scattered.
 [wait time="1.0"]
 join Victor (half) center
 Victor stumbles backward, staring at what he's done.
