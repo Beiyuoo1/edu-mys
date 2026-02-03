@@ -122,7 +122,11 @@ var evidence_definitions = {
 var collected_evidence: Array = []
 
 func _ready():
-	load_evidence()
+	# Evidence is now loaded per-save-slot by SaveManager
+	# Delete old global evidence file if it exists (migration)
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.remove_absolute(SAVE_PATH)
+		print("Migrated: Deleted old global evidence file, evidence is now saved per-slot")
 
 func unlock_evidence(evidence_id: String):
 	if not evidence_definitions.has(evidence_id):
@@ -131,7 +135,7 @@ func unlock_evidence(evidence_id: String):
 
 	if not collected_evidence.has(evidence_id):
 		collected_evidence.append(evidence_id)
-		save_evidence()
+		# Don't save to global file - evidence is now saved per-slot by SaveManager
 		evidence_unlocked.emit(evidence_id)
 		print("Evidence unlocked: ", evidence_definitions[evidence_id]["title"])
 
@@ -150,21 +154,18 @@ func get_evidence_by_chapter(chapter: int) -> Array:
 	# Sort by collection order (chronological)
 	return chapter_evidence
 
+## DEPRECATED: Evidence is now saved per-slot by SaveManager
+## This function is kept for backwards compatibility but should not be used
 func save_evidence():
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	if file:
-		var data = {"collected": collected_evidence}
-		file.store_string(JSON.stringify(data))
+	push_warning("save_evidence() is deprecated - evidence is now saved per-slot by SaveManager")
+	# Don't save to global file anymore
 
+## DEPRECATED: Evidence is now loaded per-slot by SaveManager
+## This function is kept for backwards compatibility but should not be used
 func load_evidence():
-	if FileAccess.file_exists(SAVE_PATH):
-		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-		if file:
-			var json_string = file.get_as_text()
-			var data = JSON.parse_string(json_string)
-			if data and data.has("collected"):
-				collected_evidence = data["collected"]
+	push_warning("load_evidence() is deprecated - evidence is now loaded per-slot by SaveManager")
+	# Don't load from global file anymore
 
 func reset_evidence():
 	collected_evidence = []
-	save_evidence()
+	# Evidence is now managed per-slot by SaveManager, no need to save globally

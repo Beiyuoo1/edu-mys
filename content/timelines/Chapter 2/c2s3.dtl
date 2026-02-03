@@ -3,6 +3,7 @@ set {c2s3_ria_tried} = false
 set {c2s3_outsider_tried} = false
 set {c2s3_alex_tried} = false
 The Student Council room feels different now. The lockbox sits empty on the desk, a silent accusation.
+[signal arg="unlock_evidence lockbox_c2"]
 join Conrad (half) left
 join Mark (Mark_half) right
 join Ria (half) center
@@ -39,6 +40,7 @@ Conrad: Someone knew. And they used it against you.
 Conrad reaches out his hand.
 Conrad: May I see the note?
 Ria hands it over, her hand shaking.
+[signal arg="unlock_evidence threat_note_c2"]
 Conrad studies the paper carefully, holding it up to the light.
 Conrad: The handwriting is careful. Each letter formed with precision.
 Conrad: This wasn't written in anger or haste. Someone planned this message.
@@ -59,7 +61,7 @@ Conrad passes the note to the diwata.
 "Diwata Laya": This threat was the first step in a larger plan.
 "Diwata Laya": Someone set Ria up to take the blame.
 "Diwata Laya": Before we proceed, sharpen your analytical mind. Face this challenge.
-[signal arg="start_minigame curriculum:pacman"]
+[signal arg="start_minigame dialogue_choice_ria_note"]
 "Diwata Laya": Good. Your mind sees clearly now.
 [signal arg="laya_end"]
 leave "Diwata Laya"

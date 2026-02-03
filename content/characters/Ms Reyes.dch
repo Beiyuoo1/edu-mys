@@ -17,9 +17,27 @@
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
+"Ms. Reyes": {
+"export_overrides": {
+"image": "\"res://Characters/Ms. Reyes.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Victor": {
+"export_overrides": {
+"image": "\"res://Characters/Victor.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
 "half": {
 "export_overrides": {
-"image": "\"res://Sprites/Ms_Reyes_half.png\""
+"image": "\"res://Characters/Ms. Reyes.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

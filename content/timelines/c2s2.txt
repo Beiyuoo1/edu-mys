@@ -1,0 +1,347 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c2s2
+Source: c2s2.dtl
+================================================================================
+
+
+[SCENE: COMPUTER_LAB]
+
+[set {c2s2_santos_tried} = false]
+[set {c2s2_outsider_tried} = false]
+[set {c2s2_alex_tried} = false]
+
+The computer lab hums with the sound of cooling fans. Ryan sits alone at a terminal, typing rapidly.
+[Conrad enters]
+[Ryan enters]
+
+Ryan looks up, his expression immediately guarded.
+
+Ryan: Great. More people coming to interrogate me.
+
+Conrad: We're not interrogating anyone. Just gathering information.
+
+Ryan: That's what everyone says before they point fingers.
+
+Conrad: We're trying to find the truth, Ryan. Not assign blame.
+
+Ryan crosses his arms, but his posture relaxes slightly.
+
+Ryan: Fine. What do you want to know?
+
+Conrad: You were here yesterday evening. What were you working on?
+
+Ryan: My budget proposal. The one the council rejected last week.
+
+Conrad: Why were you revising a rejected proposal?
+
+Ryan: Because they were wrong to reject it. I was adding more data to prove my point.
+
+Ryan's voice rises with frustration.
+
+Ryan: Do you know how much the council wastes on decorations? Fifteen thousand pesos for Foundation Day banners.
+
+Ryan: Meanwhile, the basketball team is using balls held together with tape.
+
+Conrad: That sounds frustrating.
+
+Ryan: Frustrating doesn't begin to cover it. I've been fighting for better resource allocation for months.
+
+Ryan: Nobody listens. They just smile and vote no.
+
+Conrad: Where were you between 6\:30 and 7\:00 yesterday?
+
+Ryan: Here. Printing documents. The printer kept jamming.
+
+Conrad: Did you leave the lab at any point during that time?
+
+Ryan hesitates for just a moment.
+
+Ryan: I... went to the bathroom once. Maybe 6\:40? It was just a few minutes.
+
+Conrad: Did you see anyone in the hallway?
+
+Ryan: Ms. Santos was walking toward the cafeteria. Probably getting coffee.
+
+Ryan: And I think I saw Alex heading toward the faculty room around the same time.
+
+Conrad: Alex? The former treasurer?
+
+Ryan shrugs.
+
+Ryan: Yeah. She was carrying some folders. Probably club stuff.
+
+Conrad: Anyone else?
+
+Ryan: No. The building was pretty empty by then.
+
+Ryan stands abruptly.
+
+Ryan: Look, I didn't take the money. I have my complaints about the council, but I'm not a thief.
+
+Ryan: Now if you'll excuse me, I have work to do.
+
+Ryan returns to his computer, typing more aggressively than before.
+[Ryan leaves]
+[Mark enters]
+
+Mark: He seemed pretty defensive. And that hesitation about leaving the lab...
+
+Conrad: He admitted to being in the hallway around the same time Ms. Santos was away.
+
+Conrad: And he mentioned seeing Alex near the faculty room. Interesting.
+
+Conrad: Let's talk to Ms. Santos next.
+[Conrad leaves]
+[Mark leaves]
+
+[SCENE: FACULTY_EMPTY]
+
+
+The faculty room is quiet. Ms. Santos sits at her desk, surrounded by stacks of papers.
+[Conrad enters]
+[Ms enters]
+
+"Ms Santos" looks up with tired eyes. Dark circles suggest she hasn't slept well.
+
+She sighs heavily.
+
+Ms Santos: More questions. I've already spoken to the principal twice.
+
+Conrad: We're sorry to bother you, Ma'am. We just want to understand what happened.
+
+Ms Santos: What's there to understand? I was careless, and now a student is being blamed for it.
+
+Conrad: Can you walk us through yesterday evening?
+
+Ms Santos: I was grading papers. Test week means mountains of work.
+
+Ms Santos: I stayed until 8 PM to finish the Grade 9 exams.
+
+Conrad: Did you leave your desk at any point?
+
+"Ms Santos" fidgets with a pen, avoiding eye contact.
+
+Ms Santos: I... took a coffee break around 6\:30. Maybe fifteen minutes.
+
+Conrad: Did you lock your desk drawer before leaving?
+
+Her voice drops to barely above a whisper.
+
+Ms Santos: I'm not sure. I might have forgotten.
+
+Ms Santos: With all the grading, I've been so scattered lately. Small things slip my mind.
+
+Conrad: The council office key is kept in that drawer, correct?
+
+Her tone becomes defensive.
+
+Ms Santos: Yes. And I know what you're thinking.
+
+Ms Santos: I'm the one who let this happen. If I had just remembered to lock it...
+
+Conrad: We're not blaming you, Ma'am. We're trying to understand who had opportunity.
+
+"Ms Santos" slumps in her chair.
+
+Ms Santos: Anyone could have taken that key during my break. The faculty room door was unlocked.
+
+Conrad: Did you see anyone when you returned from your break?
+
+She pauses to think.
+
+Ms Santos: When I was coming back... I think I saw Ryan. Near the stairwell.
+
+Ms Santos: And now that I think about it... Alex was in the hallway too.
+
+Conrad: Alex? The former treasurer?
+
+Ms Santos: Yes. She said she was returning some club documents. Asked if she could leave them on my desk.
+
+Ms Santos: I told her to just put them in the inbox by the door.
+
+Conrad: What time was that?
+
+Ms Santos: Around 6\:45. Maybe a few minutes before.
+
+Conrad: Did Alex go into the faculty room?
+
+Uncertainty crosses her face.
+
+Ms Santos: I... I don't know. I went to get my coffee. She was still in the hallway when I left.
+
+Conrad: Thank you, Ma'am. This is helpful.
+[Ms leaves]
+[Mark enters]
+
+Mark: So both Ryan and Alex were near the faculty room during Ms. Santos's break.
+
+Conrad: And Alex had a reason to be there. "Returning documents."
+
+Mark: A perfect excuse to slip in and grab the key.
+
+Conrad: We need to talk to Alex.
+[Diwata enters]
+
+[EVENT: laya_start]
+
+
+Diwata Laya: Before confronting more witnesses, test your ability to recall details quickly.
+
+[MINIGAME: curriculum:runner]
+
+
+Diwata Laya: Good. Your memory sharpens.
+
+[EVENT: laya_end]
+
+[Diwata leaves]
+[Conrad leaves]
+[Mark leaves]
+
+[SCENE: HALLWAY]
+
+
+They find Alex near the bulletin board, studying the club announcements.
+[Conrad enters]
+[Alex enters]
+
+Alex turns as they approach, her expression wary.
+
+Alex: Let me guess. You're here about the missing money.
+
+Conrad: Word travels fast.
+
+Bitterness creeps into her voice.
+
+Alex: Especially when people are looking for someone to blame besides precious Ria.
+
+Conrad: You sound frustrated.
+
+Alex: Wouldn't you be? I was treasurer for two years. Never lost a single peso.
+
+Alex: Then Ria comes in with her "fresh ideas" and suddenly I'm yesterday's news.
+
+Conrad: You were here yesterday evening. What were you doing?
+
+Alex: Club committee meeting. We finished around 6\:30.
+
+Conrad: And after that?
+
+Alex: I had some old documents to return to the faculty room.
+
+Alex: Club budget records from last year. They needed them for the audit.
+
+Conrad: Did you go inside the faculty room?
+
+Alex hesitates, crossing her arms defensively.
+
+Alex: I... stepped in briefly. Ms. Santos wasn't there.
+
+Alex: I left the folders in her inbox and left. That's it.
+
+Conrad: Did you see anyone else?
+
+Alex: Ryan was lurking around. Near the stairs.
+
+Alex: He's always complaining about the budget. Wouldn't surprise me if he finally snapped.
+
+Conrad: You seem to know a lot about what happened.
+
+Alex's tone turns defensive.
+
+Alex: Because I was there! And because I actually pay attention.
+
+Alex: Unlike some people who just waltz in and take over positions they didn't earn.
+
+Mark: You mean Ria?
+
+Alex scoffs.
+
+Alex: She made mistakes I never would have made. Leaving the lockbox unlocked overnight?
+
+Alex: If I were still treasurer, this never would have happened.
+
+Conrad: How do you know about Ria's mistake last year?
+
+Alex's expression flickers for just a moment.
+
+Alex: Everyone knows. Council gossip travels fast.
+
+Alex: Look, I didn't take the money. I have nothing to prove and nothing to gain.
+
+Alex: If you want a suspect, look at the guy who's been publicly ranting about budget waste for months.
+
+Alex walks away before Conrad can ask more questions.
+[Alex leaves]
+[Mark enters]
+
+Mark: She's bitter about being replaced. And she knew about Ria's mistake.
+
+Conrad: She also admitted to being in the faculty room when Ms. Santos was gone.
+
+Mark: Just like Ryan was in the hallway at the same time.
+
+Conrad: Two people with motive. Two people with opportunity.
+
+Conrad: The timeline is getting complicated.
+
+Mark: So who do we focus on?
+
+[LABEL: suspect_choice]
+
+
+Conrad: Based on what we've learned, who should we focus on?
+  → Ms. Santos is careless. Maybe she took the money herself. | 
+[set {c2s2_santos_tried} = true]
+
+[EVENT: wrong_choice]
+
+[set {chapter2_score} -= 5]
+
+Conrad: That doesn't fit. She has no motive, and she seemed genuinely distressed about forgetting to lock the drawer.
+
+Conrad: Her guilt is about her carelessness, not about theft. She's not our culprit.
+[JUMP TO: suspect_choice]
+  → An outsider must have broken in. | 
+[set {c2s2_outsider_tried} = true]
+
+[EVENT: wrong_choice]
+
+[set {chapter2_score} -= 5]
+
+Conrad: There's no sign of forced entry anywhere. The school has security guards at the gates.
+
+Conrad: And only someone with inside knowledge would know where the key was kept. This was an inside job.
+[JUMP TO: suspect_choice]
+  → Alex is bitter about being replaced. She had access and motive. | 
+[set {c2s2_alex_tried} = true]
+
+[EVENT: wrong_choice]
+
+[set {chapter2_score} -= 5]
+
+Conrad: Alex is bitter, but her motive doesn't quite fit.
+
+Conrad: She wants to prove she was better than Ria. Stealing the fund would hurt students, not the council leadership.
+
+Conrad: And if she wanted revenge, why now? She's had a whole year to act.
+[JUMP TO: suspect_choice]
+  → Ryan had motive and opportunity. He needs closer investigation.
+[set {chapter2_score} += 10]
+
+Conrad: Ryan was frustrated with the council's budget decisions.
+
+Conrad: He had access to the hallway during Ms. Santos's break.
+
+Conrad: And both witnesses saw him near the stairs at exactly the right time.
+
+Conrad: Alex was there too, but Ryan's motive is more immediate. His proposal was just rejected.
+
+Mark: So what do we do now?
+
+Conrad: We need more evidence before we can confront either of them. Let's talk to Ria.
+
+Conrad: Maybe she knows something else. Something that can help us narrow this down.
+[Conrad leaves]
+[Mark leaves]
+[JUMP TO: c2s3/]

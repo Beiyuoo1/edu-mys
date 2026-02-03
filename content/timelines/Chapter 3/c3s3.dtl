@@ -13,7 +13,7 @@ Conrad: Evidence collected properly can help everyone, including Victor if he's 
 They move through the storage area.
 Conrad: Here. Victor Lim.
 Conrad opens the cabinet carefully.
-Inside are neatly organized supplies: brushes arranged by size, paints sorted by color, pristine tools.
+Inside are neatly organized supplies\: brushes arranged by size, paints sorted by color, pristine tools.
 Conrad: Meticulous. Everything in perfect order.
 Mark: So he's organized. Lots of people are organized.
 Conrad: Look here.
@@ -28,7 +28,7 @@ Conrad: What's this?
 He pulls out a worn sketchbook, its cover marked with Victor's name.
 [signal arg="unlock_evidence victor_sketchbook_c3"]
 Conrad flips through the pages.
-The first half is filled with technical studies: anatomy, perspective, shading techniques.
+The first half is filled with technical studies\: anatomy, perspective, shading techniques.
 Then the tone changes.
 Conrad: Mark, look at this.
 Angry sketches fill the later pages. Crossed-out figures. Dark, violent imagery.
@@ -43,7 +43,7 @@ He examines the receipt.
 Conrad: Art supply store. Dated yesterday. Time stamp: 8:47 PM.
 [signal arg="unlock_evidence art_store_receipt_c3"]
 Mark: That's late. Why would he need supplies so urgently?
-Conrad: The store is near the school. If he was there at 8:47, he could easily have come here afterward.
+Conrad: The store is near the school. If he was there at 8\:47, he could easily have come here afterward.
 Mark: His alibi was that he was home all night. This proves he was out.
 Conrad: It proves he was at the store. Not that he came here.
 Conrad: We need something that directly links him to the courtyard last night.
@@ -59,7 +59,7 @@ join "Diwata Laya" (Half_mirror) center
 "Diwata Laya": [i][color=#9999ff]Consider it... sharpening your tools.[/color][/i]
 [signal arg="start_minigame curriculum:platformer"]
 "Diwata Laya": [i][color=#9999ff]Good. Your mind is clear now.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Consider this: the cloth you found at the scene. Look more closely.[/color][/i]
+"Diwata Laya": [i][color=#9999ff]Consider this\: the cloth you found at the scene. Look more closely.[/color][/i]
 [signal arg="laya_end"]
 leave "Diwata Laya"
 Conrad examines the paint cloth more carefully.
@@ -88,7 +88,7 @@ join Mark (Mark_half) right
 Mark: So we have it. The cloth at the scene came from Victor's supplies.
 label evidence_choice
 Conrad: We have multiple pieces of evidence. Which is most conclusive?
-- The sketchbook with angry drawings of Mia's sculpture. [if {c3s3_sketchbook_tried} == false]
+- The sketchbook with angry drawings of Mia's sculpture. | [if {c3s3_sketchbook_tried} == false]
 	set {c3s3_sketchbook_tried} = true
 	[signal arg="wrong_choice"]
 	set {chapter3_score} -= 5
@@ -96,7 +96,7 @@ Conrad: We have multiple pieces of evidence. Which is most conclusive?
 	Conrad: Drawing something doesn't mean you'll act on it.
 	Conrad: A defense could argue he was processing emotions, not planning a crime.
 	jump evidence_choice
-- The receipt placing him near school at 8:47 PM. [if {c3s3_receipt_tried} == false]
+- The receipt placing him near school at 8:47 PM. | [if {c3s3_receipt_tried} == false]
 	set {c3s3_receipt_tried} = true
 	[signal arg="wrong_choice"]
 	set {chapter3_score} -= 5

@@ -1,0 +1,203 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c2s3
+Source: c2s3.dtl
+================================================================================
+
+
+[SCENE: COUNCIL_ROOM]
+
+[set {c2s3_ria_tried} = false]
+[set {c2s3_outsider_tried} = false]
+[set {c2s3_alex_tried} = false]
+
+The Student Council room feels different now. The lockbox sits empty on the desk, a silent accusation.
+[Conrad enters]
+[Mark enters]
+[Ria enters]
+
+Ria looks smaller than before, her shoulders hunched. Her eyes are red from crying.
+
+Mark: Ria, are you okay?
+
+Her voice is barely above a whisper.
+
+Ria: Everyone thinks I did it. I can hear them whispering.
+
+Conrad: We don't think that. We're trying to find out what really happened.
+
+Ria looks up, a flicker of hope in her eyes.
+
+Ria: You... you believe me?
+
+Conrad: I believe in evidence. And right now, there's no evidence against you.
+
+Conrad: But I need to ask you some questions. Is there anything you haven't told anyone?
+
+Ria's hands tremble slightly. She looks down at the floor.
+
+Ria: I... there is something.
+
+Mark: What is it?
+
+Ria takes a shaky breath.
+
+Ria: A few days ago, I found a note in my locker.
+
+Conrad: What kind of note?
+
+Ria's voice breaks.
+
+Ria: A threat.
+
+She reaches into her pocket and pulls out a folded piece of paper.
+
+Ria: It said... "I know what you did with last year's fund. Resign or I'll expose you."
+
+Mark: Someone was threatening you? Why didn't you tell anyone?
+
+Tears begin to form in Ria's eyes.
+
+Ria: I was scared! I thought if I told someone, it would make me look guilty.
+
+Ria: Like I had something to hide. So I just... kept it to myself.
+
+Conrad: What did you do with last year's fund, Ria?
+
+Ria: Nothing! I mean... I made a mistake once.
+
+Ria: I was rushing to get home for my grandmother's birthday. I forgot to lock the money box overnight.
+
+Ria: But nothing was taken! I checked first thing the next morning.
+
+Ria: I fixed it immediately. I thought no one knew.
+
+Conrad: Someone knew. And they used it against you.
+
+Conrad reaches out his hand.
+
+Conrad: May I see the note?
+
+Ria hands it over, her hand shaking.
+
+Conrad studies the paper carefully, holding it up to the light.
+
+Conrad: The handwriting is careful. Each letter formed with precision.
+
+Conrad: This wasn't written in anger or haste. Someone planned this message.
+
+Mark: So whoever wrote this had time to think it through.
+
+Conrad: More than that. They knew about Ria's mistake from last year.
+
+Conrad: This information wasn't public. Only someone watching closely would know.
+[Diwata enters]
+
+[EVENT: laya_start]
+
+
+"Diwata Laya" appears beside Conrad, her form shimmering faintly.
+
+Diwata Laya: There is more to this note than paper and ink.
+
+Diwata Laya: May I examine it?
+
+Conrad passes the note to the diwata.
+
+"Diwata Laya" holds the note gently, closing her eyes.
+
+Diwata Laya: I sense... calculation. Cold purpose behind these words.
+
+Diwata Laya: The person who wrote this... they wanted control. Not just revenge.
+
+Diwata Laya: They wanted Ria afraid. Distracted. Unable to defend herself.
+
+"Diwata Laya" opens her eyes.
+
+Diwata Laya: This threat was the first step in a larger plan.
+
+Diwata Laya: Someone set Ria up to take the blame.
+
+Diwata Laya: Before we proceed, sharpen your analytical mind. Face this challenge.
+
+[MINIGAME: curriculum:pacman]
+
+
+Diwata Laya: Good. Your mind sees clearly now.
+
+[EVENT: laya_end]
+
+[Diwata leaves]
+
+update Ria (half) center
+
+[LABEL: note_choice]
+
+
+Conrad: Careful handwriting. Calculated timing. Knowledge of Ria's past mistake. Who could have written this?
+  → Maybe Ria wrote it herself to deflect suspicion. | 
+[set {c2s3_ria_tried} = true]
+
+[EVENT: wrong_choice]
+
+[set {chapter2_score} -= 5]
+
+Conrad: No. Look at her. She's genuinely terrified.
+
+Conrad: And why would she show us a fake note that makes her look worse? That makes no sense.
+[JUMP TO: note_choice]
+  → It could be an outsider trying to cause chaos at school. | 
+[set {c2s3_outsider_tried} = true]
+
+[EVENT: wrong_choice]
+
+[set {chapter2_score} -= 5]
+
+Conrad: But the note mentions Ria's specific mistake from last year.
+
+Conrad: Only someone inside the school, someone watching the council closely, would know that detail.
+[JUMP TO: note_choice]
+  → Alex. She resented being replaced and knew about Ria's mistake. | 
+[set {c2s3_alex_tried} = true]
+
+[EVENT: wrong_choice]
+
+[set {chapter2_score} -= 5]
+
+Conrad: Alex knew about the mistake, and she's clearly bitter about losing her position.
+
+Conrad: But this note isn't about proving she was better. It's about forcing Ria out.
+
+Conrad: Alex wants recognition, not destruction. And the threat mentions "exposing" Ria...
+
+Conrad: But if Alex wanted to expose Ria, she could have done it publicly. Why threaten first?
+
+Conrad: This feels more like manipulation toward a specific goal. That's not Alex's style.
+[JUMP TO: note_choice]
+  → Ryan. He had motive, and this fits his personality.
+[set {chapter2_score} += 10]
+
+Conrad: Ryan was frustrated that his budget proposals kept getting rejected.
+
+Conrad: If he wanted to force change in the council, discrediting the treasurer would be a calculated first step.
+
+Conrad: He could observe council operations. He would notice Ria's habits.
+
+Mark: But how do we prove Ryan wrote it?
+
+Conrad: I need to see something written in Ryan's own hand. His budget proposal.
+
+Conrad: He said the printer was jamming yesterday. Maybe there's a rejected copy somewhere.
+
+Mark: The printer reject tray in the computer lab.
+
+Conrad: Exactly. Let's check it. If the handwriting matches...
+
+Hope flickers in Ria's eyes.
+
+Ria: You really think you can prove I didn't do it?
+
+Conrad: I don't think. I investigate. And right now, the evidence is pointing away from you.
+[Conrad leaves]
+[Mark leaves]
+[Ria leaves]
+[JUMP TO: c2s4/]

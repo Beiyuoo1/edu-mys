@@ -20,3 +20,6 @@ export_presets.cfg
 
 # Ignore macOS trash
 .DS_Store
+
+# Vosk speech recognition models (too large for GitHub, download separately)
+addons/vosk/models/

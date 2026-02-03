@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwmntxfsvgvn1"
-path="res://.godot/imported/placeholder_jewelry.png-47b5f624751a344615129fe0d3d225b0.ctex"
+uid="uid://bqa703psxcs0s"
+path="res://.godot/imported/clue3.png-43bf1c63ef07bc24cd951ea76bc52026.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/evidence/placeholder_jewelry.png"
-dest_files=["res://.godot/imported/placeholder_jewelry.png-47b5f624751a344615129fe0d3d225b0.ctex"]
+source_file="res://Pics/clue3.png"
+dest_files=["res://.godot/imported/clue3.png-43bf1c63ef07bc24cd951ea76bc52026.ctex"]
 
 [params]
 

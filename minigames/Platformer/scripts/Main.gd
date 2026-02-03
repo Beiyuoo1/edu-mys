@@ -222,11 +222,11 @@ func _process(_delta):
 	if not game_active:
 		return
 
-	# Camera follows player (CanvasLayer uses 'offset' instead of 'position')
+	# Camera follows player (Node2D uses 'position', not 'offset')
 	var player = $GameLayer/Player
 	if player:
-		$GameLayer.offset.x = -player.position.x + 200
-		$GameLayer.offset.x = clamp($GameLayer.offset.x, -(level_width - 600), 0)
+		$GameLayer.position.x = -player.position.x + 200
+		$GameLayer.position.x = clamp($GameLayer.position.x, -(level_width - 600), 0)
 
 func _end_game(success: bool):
 	game_active = false

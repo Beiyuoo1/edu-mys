@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhlrfwnfjpcdd"]
+[gd_scene load_steps=3 format=3 uid="uid://dhlrfwnfjpcdd"]
 
 [ext_resource type="Script" uid="uid://d2r0cianxe86a" path="res://minigames/Drag/scripts/fill_in_the_blank.gd" id="1_p01xe"]
-[ext_resource type="Texture2D" uid="uid://bjnerslxymtq2" path="res://Bg/door.png" id="2_bjn30"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u4nt"]
 corner_radius_top_left = 50
@@ -23,7 +22,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bjn30")
 expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TextureRect"]
@@ -35,11 +33,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/TextureRect/CenterContainer"]
-custom_minimum_size = Vector2(800, 400)
+custom_minimum_size = Vector2(1200, 500)
 layout_mode = 2
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer"]
 layout_mode = 2
+ratio = 2.4
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer"]
 layout_mode = 2
@@ -68,56 +67,76 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "⏱️ 1:30"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HintButton" type="Button" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "💡 Hint"
+
+[node name="HintLabel" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Hints: 3"
+
 [node name="TitleLabel" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Complete the Sentence"
 horizontal_alignment = 1
 
 [node name="SubtitleLabel" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Drag the correct words into the blanks"
+theme_override_font_sizes/font_size = 24
+text = "Choose the closest meaning of \"Studies\" in the sentence"
 horizontal_alignment = 1
 
 [node name="ContextLabel" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Knowledge must be"
+theme_override_font_sizes/font_size = 26
+text = "\"Conrad"
 
 [node name="drop1" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 color = Color(1, 1, 1, 0.33333334)
 
 [node name="Label2" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = ",and someone"
-
-[node name="drop2" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-color = Color(1, 1, 1, 0.33333334)
-
-[node name="Label3" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "it."
+theme_override_font_sizes/font_size = 26
+text = "the enelope closely\""
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 columns = 4
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect2"]
@@ -127,13 +146,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Protected"
+theme_override_font_sizes/font_size = 24
+text = "examines"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect"]
@@ -143,13 +165,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Instruction"
+theme_override_font_sizes/font_size = 24
+text = "instruction"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect3"]
@@ -159,13 +184,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Take"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect4"]
@@ -175,13 +203,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect5" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect5"]
@@ -191,13 +222,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Commited"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect6" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect6"]
@@ -207,13 +241,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Named"
+theme_override_font_sizes/font_size = 24
+text = "name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect7" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect7"]
@@ -223,13 +260,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Stole"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect8" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 color = Color(0, 0, 0, 0.35686275)
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/GridContainer/ColorRect8"]
@@ -239,6 +279,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Made"
 horizontal_alignment = 1
 vertical_alignment = 1

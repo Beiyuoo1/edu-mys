@@ -11,7 +11,82 @@ var maze_scene = preload("res://minigames/Maze/scenes/Main.tscn")
 var pronunciation_scene = preload("res://minigames/Pronunciation/scenes/Main.tscn")
 var math_scene = preload("res://minigames/Math/scenes/Main.tscn")
 var dialogue_choice_scene = preload("res://minigames/DialogueChoice/scenes/Main.tscn")
+var hear_and_fill_scene = preload("res://minigames/HearAndFill/scenes/Main.tscn")
+var riddle_scene = preload("res://minigames/Riddle/scenes/Main.tscn")
 var current_minigame = null
+
+# Preloaded Vosk recognizer for dialogue choice minigame
+var shared_vosk_recognizer = null
+var vosk_loading_progress: float = 0.0  # 0.0 to 1.0
+var vosk_is_loaded: bool = false
+var loading_screen = null
+const VOSK_MODEL_PATH = "res://addons/vosk/models/vosk-model-en-us-0.22"
+const VOSK_SAMPLE_RATE = 16000.0
+var loading_screen_scene = preload("res://scenes/ui/vosk_loading_screen.tscn")
+
+func _ready():
+	print("MinigameManager: Starting Vosk preload with loading screen...")
+	_show_loading_screen_and_load()
+
+func _show_loading_screen_and_load():
+	"""Show loading screen and load Vosk model with progress tracking"""
+	# Show loading screen (use call_deferred to avoid parent busy error)
+	loading_screen = loading_screen_scene.instantiate()
+	get_tree().root.call_deferred("add_child", loading_screen)
+
+	# Start loading asynchronously
+	_preload_vosk_async()
+
+func _preload_vosk_async():
+	"""Preload Vosk model asynchronously with simulated progress tracking"""
+	# Wait one frame to let the loading screen appear
+	await get_tree().process_frame
+
+	print("MinigameManager: Initializing Vosk recognizer...")
+
+	# Simulate progress (since GodotVoskRecognizer.initialize() doesn't report progress)
+	# We'll fake the progress bar animation
+	var progress_tween = create_tween()
+	progress_tween.tween_property(self, "vosk_loading_progress", 0.3, 1.0)
+
+	await get_tree().create_timer(1.0).timeout
+
+	# Actually initialize Vosk (this is the slow part)
+	shared_vosk_recognizer = GodotVoskRecognizer.new()
+	var absolute_path = ProjectSettings.globalize_path(VOSK_MODEL_PATH)
+
+	# Continue progress animation
+	var progress_tween2 = create_tween()
+	progress_tween2.tween_property(self, "vosk_loading_progress", 0.7, 2.0)
+
+	# Initialize (this blocks, but progress bar keeps animating)
+	var success = await _initialize_vosk_threaded(absolute_path)
+
+	# Complete progress
+	vosk_loading_progress = 1.0
+
+	if success:
+		print("MinigameManager: ✓ Vosk model loaded and ready!")
+		vosk_is_loaded = true
+	else:
+		push_error("MinigameManager: Failed to load Vosk model at: " + absolute_path)
+		shared_vosk_recognizer = null
+		vosk_is_loaded = false
+
+func _initialize_vosk_threaded(absolute_path: String) -> bool:
+	"""Initialize Vosk in a way that doesn't completely freeze the UI"""
+	# Break into chunks to allow UI updates
+	await get_tree().process_frame
+	vosk_loading_progress = 0.75
+
+	var result = shared_vosk_recognizer.initialize(absolute_path, VOSK_SAMPLE_RATE)
+
+	await get_tree().process_frame
+	vosk_loading_progress = 0.95
+
+	await get_tree().create_timer(0.3).timeout
+
+	return result
 
 # Fill-in-the-blank puzzle configs
 var fillinTheblank_configs = {
@@ -24,6 +99,11 @@ var fillinTheblank_configs = {
 		"sentence_parts": ["Critical thinking requires ", " evidence before forming a ", "."],
 		"answers": ["evaluating", "judgment"],
 		"choices": ["evaluating", "ignoring", "judgment", "question", "collecting", "opinion", "belief", "theory"]
+	},
+	"locker_examination": {
+		"sentence_parts": ["Conrad ", " the envelope closely."],
+		"answers": ["examines"],
+		"choices": ["examines", "ignores", "watches", "touches", "breaks", "opens", "closes", "avoids"]
 	},
 	"budget_basics": {
 		"sentence_parts": ["A budget helps track ", " and ", " to manage money wisely."],
@@ -1598,6 +1678,49 @@ var math_configs = {
 	}
 }
 
+# Hear and Fill pronunciation puzzle configs
+var hear_and_fill_configs = {
+	"wifi_router": {
+		"sentence": "Sir, does this room have a dedicated ____ router?",
+		"blank_word": "WiFi",
+		"correct_index": 2,
+		"choices": ["Hi-fi", "Sci-fi", "WiFi", "Bye-bye", "Fly high", "Sky high", "Pie-fry", "Why try"]
+	}
+}
+
+# Riddle puzzle configs
+var riddle_configs = {
+	"bracelet_riddle": {
+		"riddle": "Round I go, around your hand,\nI shine and sparkle, isn't that grand?",
+		"answer": "BRACELET",
+		"letters": ["B", "R", "A", "C", "E", "L", "E", "T", "W", "H", "V", "M", "K", "O", "I", "G"]
+	}
+}
+
+# Dialogue Choice (Speech-to-Text) configs
+var dialogue_choice_configs = {
+	"dialogue_choice_janitor": {
+		"question": "How do you politely ask the janitor for help?",
+		"choices": [
+			"Excuse me, sir sorry to interrupt, but may I quickly check under my desk for something I left",
+			"Good afternoon, sir have you seen any unusual item while cleaning this room?",
+			"Hi sir, I can help move the chairs, and by the way, did you see a small item I dropped near here",
+			"Sir, did anyone turn in a lost item from this classroom today"
+		],
+		"correct_index": 1  # Choice 2 (0-indexed)
+	},
+	"dialogue_choice_ria_note": {
+		"question": "Why didn't Ria tell anyone about the note?",
+		"choices": [
+			"She feared it would make her look guilty.",
+			"She fear it make her guilty.",
+			"She was fear to look guilty.",
+			"She fearing it made her guilty."
+		],
+		"correct_index": 0  # Choice 1 (A)
+	}
+}
+
 func start_minigame(puzzle_id: String) -> void:
 	print("DEBUG: MinigameManager.start_minigame called with: ", puzzle_id)
 	if current_minigame:
@@ -1625,7 +1748,11 @@ func start_minigame(puzzle_id: String) -> void:
 		_start_pronunciation(puzzle_id)
 	elif math_configs.has(puzzle_id):
 		_start_math(puzzle_id)
-	elif puzzle_id == "dialogue_choice_janitor":
+	elif hear_and_fill_configs.has(puzzle_id):
+		_start_hear_and_fill(puzzle_id)
+	elif riddle_configs.has(puzzle_id):
+		_start_riddle(puzzle_id)
+	elif dialogue_choice_configs.has(puzzle_id):
 		_start_dialogue_choice(puzzle_id)
 	# Oral Communication Module configs
 	elif _get_oralcom_config(puzzle_id) != null:
@@ -1788,14 +1915,48 @@ func _start_curriculum_minigame(minigame_type: String) -> void:
 	print("DEBUG: Curriculum minigame started: ", minigame_type)
 
 func _start_dialogue_choice(puzzle_id: String) -> void:
-	print("DEBUG: Starting Dialogue Choice minigame...")
+	print("DEBUG: Starting Dialogue Choice minigame: ", puzzle_id)
+	var config = dialogue_choice_configs[puzzle_id]
 	current_minigame = dialogue_choice_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
+	current_minigame.configure_puzzle(config)
 	current_minigame.minigame_completed.connect(_on_dialogue_choice_finished.bind(puzzle_id))
 	print("DEBUG: Dialogue Choice minigame should now be visible")
 
 func _on_dialogue_choice_finished(success: bool, puzzle_id: String) -> void:
 	print("DEBUG: Dialogue Choice minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	if success:
+		Dialogic.VAR.minigames_completed += 1
+	minigame_completed.emit(puzzle_id, success)
+	current_minigame = null
+
+func _start_hear_and_fill(puzzle_id: String) -> void:
+	print("DEBUG: Starting Hear and Fill minigame...")
+	var config = hear_and_fill_configs[puzzle_id]
+	current_minigame = hear_and_fill_scene.instantiate()
+	get_tree().root.add_child(current_minigame)
+	current_minigame.configure_puzzle(config)
+	current_minigame.minigame_completed.connect(_on_hear_and_fill_finished.bind(puzzle_id))
+	print("DEBUG: Hear and Fill minigame should now be visible")
+
+func _on_hear_and_fill_finished(success: bool, puzzle_id: String) -> void:
+	print("DEBUG: Hear and Fill minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	if success:
+		Dialogic.VAR.minigames_completed += 1
+	minigame_completed.emit(puzzle_id, success)
+	current_minigame = null
+
+func _start_riddle(puzzle_id: String) -> void:
+	print("DEBUG: Starting Riddle minigame: ", puzzle_id)
+	var config = riddle_configs[puzzle_id]
+	current_minigame = riddle_scene.instantiate()
+	get_tree().root.add_child(current_minigame)
+	current_minigame.configure_puzzle(config)
+	current_minigame.minigame_completed.connect(_on_riddle_finished.bind(puzzle_id))
+	print("DEBUG: Riddle minigame should now be visible")
+
+func _on_riddle_finished(success: bool, puzzle_id: String) -> void:
+	print("DEBUG: Riddle minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
 	if success:
 		Dialogic.VAR.minigames_completed += 1
 	minigame_completed.emit(puzzle_id, success)

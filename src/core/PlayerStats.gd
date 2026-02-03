@@ -7,6 +7,7 @@ signal stats_changed(stats)
 var score: int = 0
 var xp: int = 0
 var level: int = 1
+var hints: int = 3  # Starting hints for minigames
 
 # How much XP is needed to reach the next level.
 # This could be a constant, or a value from a curve (e.g., exponential).
@@ -41,6 +42,25 @@ func add_xp(amount: int):
 	save_stats()
 
 
+func add_hints(amount: int):
+	"""
+	Adds hints to the player's hint pool.
+	"""
+	hints += amount
+	emit_signal("stats_changed", get_stats())
+	save_stats()
+
+func use_hint() -> bool:
+	"""
+	Uses one hint. Returns true if successful, false if no hints available.
+	"""
+	if hints > 0:
+		hints -= 1
+		emit_signal("stats_changed", get_stats())
+		save_stats()
+		return true
+	return false
+
 func get_stats() -> Dictionary:
 	"""
 	Returns a dictionary containing all current player stats.
@@ -49,7 +69,8 @@ func get_stats() -> Dictionary:
 		"score": score,
 		"xp": xp,
 		"level": level,
-		"xp_needed": XP_PER_LEVEL
+		"xp_needed": XP_PER_LEVEL,
+		"hints": hints
 	}
 
 
@@ -78,6 +99,7 @@ func load_stats():
 				score = data.get("score", 0)
 				xp = data.get("xp", 0)
 				level = data.get("level", 1)
+				hints = data.get("hints", 10)
 
 	emit_signal("stats_changed", get_stats())
 
@@ -96,6 +118,6 @@ func reset_stats():
 	score = 0
 	xp = 0
 	level = 1
+	hints = 10
 	emit_signal("stats_changed", get_stats())
 	save_stats()
-

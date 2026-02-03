@@ -26,7 +26,7 @@ Conrad: Can you tell me more about it? Who does it belong to?
 Conrad: Another test?
 "Diwata Laya": [i][color=#9999ff]If you want my help, yes.[/color][/i]
 Conrad: Alright, let's do it.
-[signal arg="start_minigame evidence_analysis"]
+[signal arg="start_minigame bracelet_riddle"]
 "Diwata Laya": [i][color=#9999ff]Good. Your focus has cleared the path. Now I can see...[/color][/i]
 "Diwata Laya": [i][color=#9999ff]This bracelet carries immense grief. It belonged to someone who has passed - a grandmother, I think. The owner treasures it above all else.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Whoever owns this would confess to anything to get it back. Use that.[/color][/i]
@@ -76,7 +76,8 @@ leave --All--
 Conrad shows a photo on his phone - a small, worn charm bracelet with distinctive beads.
 [background arg="res://Bg/hallway.png" fade="1.0"]
 join Conrad left
-join Greg right
+join Mark right
+join Greg center
 join "Diwata Laya" rightmost
 Conrad: It was on the floor, partially hidden under the desk. It must have fallen off during the sabotage.
 Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
@@ -87,7 +88,6 @@ Conrad: It has very specific beads - blue, red, and white, with a tiny silver cr
 "Diwata Laya": [i][color=#9999ff](Whispering) Absolutely. But he will not confess easily. You need the right approach.[/color][/i]
 "Conrad (Thinking)": What should I do?
 "Diwata Laya": [i][color=#9999ff](Whispering) Clear your mind first. Then I will guide you.[/color][/i]
-[signal arg="start_minigame statement_analysis"]
 "Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break him.[/color][/i]
 "Conrad (Thinking)": Got it.
 [signal arg="laya_end"]
@@ -114,6 +114,7 @@ Greg: I went to the faculty room at 9\:00 PM. I used the key, got inside, and...
 Greg: The bracelet must have fallen off when I was reaching up to the unit. I didn't even notice it was gone until now.
 Conrad: Do you still have the envelope?
 Greg: Yes, here.
+[signal]
 Conrad examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
 join Principal (Principa_half_mirror) leftmost
 Principal: I believe I've heard enough.
@@ -127,19 +128,27 @@ Conrad: Here. I understand what it means to you.
 Greg clutches the bracelet tightly
 Greg: Thank you... I'm sorry for everything.
 Principal: Conrad, Mark. You have shown great responsibility and intellect. The school thanks you both.
-leave Principal
-leave Greg
+leave --All--
+[background arg="res://Bg/door.png" fade="0.0"]
+join Conrad left
+join Mark right
 Conrad Sighs...
-Conrad: Well, that's case closed.
-Mark: Dude, that was intense. How did you know the bracelet was so important to him?
-Conrad: When I first found it in the faculty room, I just felt that it had to be important.
-[signal arg="laya_start"]
-"Conrad (Thinking)": That was thanks to Laya though.
-[signal arg="laya_end"]
-Conrad: That's when I knew it could be the key to getting a confession.
-Mark: So you knew before we even confronted him?
-Conrad: I knew it was important. I just didn't know it was Greg's. Haha
+Conrad: Hold on - this case isn't closed yet. I need to check the envelope.
+leave Conrad
+leave Mark
+Narrator: Conrad and Mark headed back to the classroom and inspect the locker
+[background arg="res://Bg/envelope1.png" fade="0.0"]
+join Conrad left
+join Mark right
+[style name="hide_textbox"]
+[signal arg="start_minigame locker_examination"]
+[style]
 [signal arg="check_level_up"]
+Narrator: Conrad Studies the envelope closely.
+Narrator: No name is written on it...
+Narrator: but inside the flap is a stameped symbol
+Narrator: a pixelated spider...
+[signal arg="unlock_evidence spider_envelope_c1"]
 leave --All--
 [wait time="1.0"]
 jump c2s0/

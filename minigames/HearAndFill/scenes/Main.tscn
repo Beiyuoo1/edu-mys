@@ -1,0 +1,198 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3sjt7ym8uad5"]
+
+[ext_resource type="Script" uid="uid://dsxjibhwmihu8" path="res://minigames/HearAndFill/scenes/Main.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://lbkbgl5rfv1g" path="res://resources/ui/game_theme.tres" id="2_theme"]
+
+[node name="HearAndFillMinigame" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+
+[node name="MainContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HeaderContainer" type="HBoxContainer" parent="Control/MainContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TimerLabel" type="Label" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "03:00"
+horizontal_alignment = 1
+
+[node name="HintButton" type="Button" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "💡 Hint"
+
+[node name="HintLabel" type="Label" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Hint: 10"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PromptLabel" type="Label" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 32
+text = "Time to use your knowledge!"
+horizontal_alignment = 1
+
+[node name="HintSpacer" type="Control" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="InstructionPanel" type="PanelContainer" parent="Control/MainContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MainContainer/VBoxContainer/InstructionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "\"Hear and Fill!\""
+horizontal_alignment = 1
+
+[node name="InstructionLabel" type="Label" parent="Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Listen to the audio clip
+Choose the correct word based on proper pronunciation."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SentenceContainer" type="VBoxContainer" parent="Control/MainContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SentenceLabel" type="Label" parent="Control/MainContainer/VBoxContainer/SentenceContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Sir, does this room have a dedicated ____ router?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SpeakerButton" type="Button" parent="Control/MainContainer/VBoxContainer/SentenceContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "🔊"
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="Control/MainContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Row1" type="HBoxContainer" parent="Control/MainContainer/VBoxContainer/ChoicesContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Choice1" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row1"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "Hi-fi"
+
+[node name="Choice2" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row1"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "Sci-fi"
+
+[node name="Choice3" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row1"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "WiFi"
+
+[node name="Choice4" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row1"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "Bye-bye"
+
+[node name="Row2" type="HBoxContainer" parent="Control/MainContainer/VBoxContainer/ChoicesContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Choice5" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row2"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "Fly high"
+
+[node name="Choice6" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row2"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "Sky high"
+
+[node name="Choice7" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row2"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "Pie-fry"
+
+[node name="Choice8" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer/Row2"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "Why try"
+
+[node name="FeedbackLabel" type="Label" parent="Control/MainContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Feedback message here"
+horizontal_alignment = 1

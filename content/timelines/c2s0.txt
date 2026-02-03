@@ -1,0 +1,98 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c2s0
+Source: c2s0.dtl
+================================================================================
+
+
+[EVENT: show_title_card 2]
+
+
+[SCENE: COUNCIL_ROOM]
+
+[set {chapter2_score} = 0]
+
+A few days before the incident...
+
+The late afternoon sun filters through the Student Council room windows, casting long shadows across the desks.
+[Ria enters]
+
+Ria sits alone, counting bills with practiced precision.
+
+Ria: Eighteen thousand... nineteen thousand...
+
+She places the last few bills carefully into the pile.
+
+Ria: Twenty thousand. Perfect.
+
+Ria's face softens into a warm smile as she looks at the money.
+
+Ria: The outreach fund is finally complete.
+
+update Ria (half) left 
+
+She picks up a worn notebook, its pages filled with careful handwriting.
+
+Ria: Twelve names. Twelve students who need help.
+
+update Ria (half) center 
+
+Her fingers trace the list gently, pausing at certain names.
+
+Ria: I know what it's like to be on a list like this.
+
+Ria: Back in Grade 7, my family couldn't afford new notebooks.
+
+Ria: I had to write on the backs of old papers. Recycled everything I could find.
+
+update Ria (half) right 
+
+Ria: The other kids noticed. They always do.
+
+Ria: "Basurera," they called me. Garbage girl.
+
+Ria: They said I didn't belong in this school.
+
+update Ria (half) center 
+
+Ria's expression shifts from pain to determination.
+
+Ria: But then the student council helped me. Quietly. No announcement. No pity.
+
+Ria: Just a bag of supplies left on my desk one morning.
+
+Ria: That small act... it changed everything.
+
+She places the money gently into the lockbox.
+
+Ria: That's why I became treasurer. So I could be that person for someone else.
+
+update Ria (half) left 
+
+Ria closes the lockbox and tests the lock twice.
+
+Ria: This money isn't just paper and ink.
+
+Ria: It's hope. It's dignity. It's proof that someone cares.
+
+She walks to Ms. Santos's desk and places the key in the drawer.
+
+update Ria (half) center 
+
+Ria: Next week, twelve students will know they're not alone.
+
+Ria: Just like I learned I wasn't alone.
+
+She gathers her bag, taking one last look at the lockbox.
+
+Ria: Stay safe, little fund. I'm counting on you.
+[Ria leaves]
+
+The room falls silent. The lockbox sits alone on the desk.
+
+Outside the window, a figure watches from the hallway.
+
+[SCENE: HALLWAY]
+
+
+Three days later...
+[JUMP TO: c2s1/]

@@ -1,0 +1,91 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c2s1
+Source: c2s1.dtl
+================================================================================
+
+
+[SCENE: HALLWAY]
+
+
+The hallway buzzes with whispered conversations. Students cluster in groups, shooting glances toward the council room.
+[Conrad enters]
+
+Conrad notices the unusual atmosphere as he walks to class.
+[Mark enters]
+
+Mark rushes up, slightly out of breath.
+
+Mark: Conrad! There you are. Did you hear?
+
+Conrad: Hear what? Everyone's acting strange today.
+
+Mark: The Student Council fund is missing. Twenty thousand pesos. Gone.
+
+Conrad: The outreach fund? For students who need supplies?
+
+Mark: That's the one. Ria discovered it this morning when she went to prepare the distribution list.
+
+Mark: The lockbox was empty. Not a single peso left.
+
+Conrad: That's a lot of money. When did this happen?
+
+Mark: Sometime yesterday evening, after classes. The principal already called an emergency meeting.
+
+Conrad: Who had access to the lockbox?
+
+Mark: That's the problem. The key is kept in Ms. Santos's desk drawer in the faculty room.
+
+Mark: Only she and the council officers know that.
+
+Conrad frowns, processing the information.
+
+Conrad: So it was either someone with inside knowledge, or...
+
+Mark: Or someone who figured it out. But here's the worst part.
+
+Mark lowers his voice.
+
+Mark: Everyone's blaming Ria. Saying the treasurer must have taken it.
+
+Conrad: That's a serious accusation. Is there any evidence?
+
+Mark: Nothing solid. Just... she had access. She's the treasurer. People are connecting dots that might not exist.
+
+Conrad: Circumstantial at best. That's not proof of guilt.
+
+Mark: I know. But the rumors are spreading fast. I saw her crying in the bathroom earlier.
+
+Mark: Some kids were calling her a thief to her face.
+
+Conrad's expression hardens.
+
+Conrad: We can't let someone be condemned without proper evidence.
+
+Conrad: If Ria is innocent, she deserves someone to find the truth.
+
+Mark: I was hoping you'd say that. So we're taking the case?
+
+Conrad: We're taking the case. Who else was in the building yesterday evening?
+
+Mark: I asked around. Ryan was in the computer lab until late. Something about printing budget documents.
+
+Mark: And Ms. Santos was grading papers in the faculty room. She keeps the key to her drawer there.
+
+Conrad: Anyone else?
+
+Mark: Actually... I heard Alex was here too. Staying late for some club thing.
+
+Conrad: Alex? The former treasurer?
+
+Mark: Yeah. Ria replaced her last year. Some people say Alex took it personally.
+
+Conrad considers this for a moment.
+
+Conrad: So we have three people with potential access... and two of them have reasons to resent the current council.
+
+Mark: Who do we talk to first?
+
+Conrad: Ryan. The computer lab is on the way. Then Alex. Let's see what they know.
+[Conrad leaves]
+[Mark leaves]
+[JUMP TO: c2s2/]

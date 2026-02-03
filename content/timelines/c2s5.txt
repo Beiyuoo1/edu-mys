@@ -1,0 +1,156 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c2s5
+Source: c2s5.dtl
+================================================================================
+
+
+[SCENE: STORAGE_ROOM]
+
+
+The sports equipment storage room is dim and dusty. Basketball hoops lean against walls, and volleyball nets hang from hooks.
+[Conrad enters]
+[Mark enters]
+
+Mark: This place is a mess. Where would someone hide money in here?
+
+Conrad: Somewhere out of sight. Behind equipment that hasn't been used in a while.
+
+Conrad knocks firmly on the partially open door.
+
+Conrad: Ryan, we know you're in here. We need to talk.
+
+Silence. Then the sound of something being set down.
+
+The door opens wider. Ryan stands inside, his expression caught between surprise and defiance.
+
+update Mark rightmost
+[Ryan enters]
+
+Ryan: What are you two doing here? This storage is off-limits to non-committee members.
+
+Conrad: We found something interesting in the computer lab.
+
+Ryan's jaw tightens almost imperceptibly.
+
+Ryan: The computer lab is public. Whatever you found has nothing to do with me.
+
+Conrad: Really? Then explain this.
+
+Conrad holds up the crumpled budget proposal draft.
+
+Conrad: Your handwriting. Your margin notes.
+
+Conrad: "If they won't listen, I'll have to make them see reason."
+
+Ryan waves his hand dismissively.
+
+Ryan: So what? I write notes to myself all the time.
+
+Conrad pulls out the second piece of paper - the threatening note.
+
+Conrad: This note was left in Ria's locker three days ago.
+
+Conrad: "I know what you did with last year's fund. Resign or I'll expose you."
+
+Ryan's face goes pale.
+
+Conrad: The handwriting is identical, Ryan. Same loops on the 'e'. Same sharp angles on the 'k'.
+
+Conrad: You wrote this threat. You knew about Ria's mistake because you've been watching the council.
+
+Conrad: Waiting for your chance.
+
+Ryan: That... that doesn't prove anything.
+
+Conrad: The printer logs show you stopped printing for over an hour yesterday evening.
+
+Conrad: During that exact time, Ms. Santos left the faculty room for coffee.
+
+Conrad: You saw her leave. You took the key from her unlocked drawer. You opened the council room.
+
+Conrad: And you took the money.
+
+Ryan stands frozen, his eyes darting around the room.
+
+Ryan: I...
+
+Conrad: Where's the money, Ryan?
+
+Ryan's shoulders slump. The defiance drains from his face.
+
+His voice comes out quiet, defeated.
+
+Ryan: Behind the equipment racks. In a gym bag.
+[Diwata enters]
+
+[EVENT: laya_start]
+
+
+Diwata Laya: Navigate through the possibilities. Find the truth hidden within.
+
+[MINIGAME: curriculum:maze]
+
+
+Diwata Laya: Your path is clear now.
+
+[EVENT: laya_end]
+
+[Diwata leaves]
+
+Mark moves past Ryan and searches behind the dusty equipment.
+
+Mark pulls out a faded blue gym bag and unzips it.
+
+Mark: Twenty thousand pesos. It's all here.
+
+Desperation floods Ryan's voice.
+
+Ryan: I wasn't stealing it! I was going to return it!
+
+Conrad: Then why take it at all?
+
+Ryan: I was going to "discover" it in a few days. Show everyone how easy it was to take.
+
+Ryan: The council is careless! Ria left the box unlocked before. Ms. Santos forgets her drawer constantly.
+
+Ryan: Someone had to prove that we need better systems!
+
+Conrad: By framing Ria? By making her cry? By letting everyone call her a thief?
+
+Ryan flinches at Conrad's words.
+
+Ryan: I... I didn't think about it that way. I just wanted them to listen to me.
+
+Ryan: Nobody ever listens. They just smile and vote no. Over and over.
+
+Ryan: I thought if something bad happened, they'd finally pay attention.
+
+Conrad: There are better ways to be heard, Ryan.
+
+Conrad: You could have talked to teachers. Gone to the principal. Organized students who agreed with you.
+
+Conrad: Instead, you chose to hurt someone innocent. Someone who was already scared and alone.
+
+Ryan's voice breaks.
+
+Ryan: I know. I know that now.
+
+Ryan: When I saw Ria crying this morning... I almost told the truth right there.
+
+Ryan: But I was too scared. Too proud.
+
+Conrad: This wasn't leadership. This was manipulation.
+
+Conrad: Good intentions don't excuse harmful actions.
+
+Ryan looks at the floor, unable to meet Conrad's eyes.
+
+Ryan: What happens now?
+
+Conrad: That's not for us to decide. But the truth will come out.
+
+Conrad: What you do next... that's up to you.
+[Conrad leaves]
+[Mark leaves]
+[Ryan leaves]
+[JUMP TO: c2s6/]

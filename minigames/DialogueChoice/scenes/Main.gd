@@ -22,11 +22,15 @@ extends CanvasLayer
 var time_remaining: float = 90.0  # 1:30 in seconds
 var timer_active: bool = false
 
-# Correct answer index (Choice 2 = index 1)
-const CORRECT_ANSWER = 1
+# Correct answer index (configurable)
+var correct_answer: int = 1  # Default to Choice 2 for janitor scenario
 
 # Selected choice
 var selected_choice_index: int = -1
+
+# Configurable question and choices
+var question_text: String = "How do you politely ask the janitor for help?"
+var choice_texts: Array = []  # Will be populated by configure_puzzle()
 
 # Voice recognition using GodotVoskRecognizer
 var vosk_recognizer: GodotVoskRecognizer = null
@@ -45,7 +49,7 @@ var last_partial_text: String = ""  # Track changes in partial results
 var word_just_recognized: bool = false  # Prevent double-triggering
 
 # Vosk configuration
-const MODEL_PATH = "res://addons/vosk/models/vosk-model-small-en-us-0.15"
+const MODEL_PATH = "res://addons/vosk/models/vosk-model-en-us-0.22"  # Large model for better accuracy
 const SAMPLE_RATE = 16000.0
 const PHRASE_MATCH_THRESHOLD = 0.6  # 60% of words must match
 const AUDIO_CHUNK_SIZE = 2048  # Smaller chunks = faster processing (was 4096)
@@ -87,7 +91,7 @@ const HOMOPHONE_GROUPS = {
 	"afternoon": ["afternoon", "after noon", "after new"],
 	"hoping": ["hoping", "hopping", "hope", "hoping"],
 	"looking": ["looking", "lock", "look"],
-	"could": ["could", "cold", "good"],
+	"could": ["could", "cold", "good", "called"],
 	"something": ["something", "some", "somethin"],
 	"unusual": ["unusual", "and usual"],
 	"sweeping": ["sweeping", "sweep", "sweeping"],
@@ -99,10 +103,10 @@ const HOMOPHONE_GROUPS = {
 
 # Full sentence text with punctuation for display
 var full_sentence_texts = [
-	"Excuse me, sir? Sorry to bother your cleaning, but I think I left something under my desk earlier. Mind if I take a quick look?",
-	"Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?",
-	"Hi there! I can move those chairs for you if you need to get into that corner. Actually, I was also looking for a small item I dropped near here. Did you happen to see it?",
-	"Hey, sir. Quick question—did anyone turn in a lost item to you from this classroom today? I'm missing something important and wanted to check with you first."
+	"Excuse me, sir sorry to interrupt, but may I quickly check under my desk for something I left",
+	"Good afternoon, sir have you seen any unusual item while cleaning this room?",
+	"“Hi sir, I can help move the chairs, and by the way, did you see a small item I dropped near here",
+	"Sir, did anyone turn in a lost item from this classroom today"
 ]
 
 # Full sentence to pronounce (no punctuation, for matching)
@@ -110,6 +114,19 @@ var target_sentence: String = ""
 var target_words = []
 
 signal minigame_completed(success: bool)
+
+func configure_puzzle(config: Dictionary):
+	"""Configure the minigame with custom question and choices"""
+	if config.has("question"):
+		question_text = config["question"]
+	if config.has("choices"):
+		choice_texts = config["choices"]
+		full_sentence_texts = config["choices"].duplicate()
+	if config.has("correct_index"):
+		correct_answer = config["correct_index"]
+
+	print("DEBUG: Dialogue choice configured - Question: ", question_text)
+	print("DEBUG: Correct answer index: ", correct_answer)
 
 func _ready():
 	print("DEBUG: DialogueChoice minigame _ready() called")
@@ -125,6 +142,13 @@ func _ready():
 
 	print("DEBUG: DialogueChoice minigame visible: ", visible)
 	print("DEBUG: DialogueChoice layer: ", layer)
+
+	# Set up choice buttons with configured text
+	if choice_texts.size() > 0:
+		for i in range(min(choice_buttons.size(), choice_texts.size())):
+			if choice_buttons[i]:
+				choice_buttons[i].text = choice_texts[i]
+				print("DEBUG: Button ", i, " text set to: ", choice_texts[i])
 
 	# Debug button connections
 	for i in range(choice_buttons.size()):
@@ -208,7 +232,7 @@ func _on_choice_selected(choice_index: int):
 	for button in choice_buttons:
 		button.disabled = true
 
-	if choice_index == CORRECT_ANSWER:
+	if choice_index == correct_answer:
 		# Correct choice - show microphone panel
 		print("DEBUG: Correct choice! Showing microphone panel")
 		_show_microphone_panel()
@@ -226,7 +250,7 @@ func _show_microphone_panel():
 	_prepare_target_sentence()
 
 	# Display the full sentence
-	sentence_display.text = full_sentence_texts[CORRECT_ANSWER]
+	sentence_display.text = full_sentence_texts[correct_answer]
 	status_label.text = "Speak the sentence above"
 	progress_label.text = "Ready to listen..."
 	transcription_label.text = "Waiting for speech..."
@@ -236,7 +260,7 @@ func _show_microphone_panel():
 
 func _prepare_target_sentence():
 	"""Prepare the target sentence for matching"""
-	var full_text = full_sentence_texts[CORRECT_ANSWER]
+	var full_text = full_sentence_texts[correct_answer]
 
 	# Remove punctuation for matching
 	target_sentence = full_text.replace(",", "").replace(".", "").replace("?", "").replace("!", "").replace("—", "").replace("'", "").to_lower()
@@ -259,7 +283,15 @@ func _show_wrong_feedback():
 			choice_buttons[i].disabled = false
 
 func _initialize_vosk():
-	"""Initialize Vosk speech recognizer"""
+	"""Initialize Vosk speech recognizer (use preloaded one if available)"""
+	# Try to use the preloaded Vosk from MinigameManager
+	if MinigameManager.shared_vosk_recognizer != null:
+		vosk_recognizer = MinigameManager.shared_vosk_recognizer
+		print("Using preloaded Vosk recognizer from MinigameManager ✓")
+		return
+
+	# Fallback: Load Vosk now if not preloaded
+	print("Vosk not preloaded, loading now...")
 	vosk_recognizer = GodotVoskRecognizer.new()
 	var absolute_path = ProjectSettings.globalize_path(MODEL_PATH)
 
@@ -340,7 +372,7 @@ func _start_sentence_recognition():
 	print("Waiting for word: '", target_words[current_word_index], "'")
 
 func _process_partial_text(partial_text: String):
-	"""Process partial text and check current word"""
+	"""Process partial text and check current word OR multiple words in sequence"""
 	# Check if text has changed
 	if partial_text == last_partial_text or partial_text.strip_edges().is_empty():
 		return
@@ -353,27 +385,57 @@ func _process_partial_text(partial_text: String):
 	# Show what's being heard
 	transcription_label.text = "Hearing: " + partial_text
 
-	# Get the current target word
-	var target_word = target_words[current_word_index]
+	print("Expected: '", target_words[current_word_index], "' | Got: '", partial_text, "'")
 
-	# Check if the LAST spoken word matches the current target
-	# This allows natural sentence speaking: "it was a" → last word is "a"
+	# FIRST: Try to match multiple consecutive words (sentence detection)
+	# Example: If user says "good afternoon sir", match all 3 words at once
+	var words_matched = _check_multiple_words_match(spoken_words)
+	if words_matched > 0:
+		print("✅ CORRECT! Matched ", words_matched, " words in sequence!")
+		# Recognize all matched words at once
+		for i in range(words_matched):
+			_on_word_recognized()
+		return
+
+	# SECOND: Fall back to single word matching (check last word only)
+	# This allows: "it was a" → recognizes "a"
 	if spoken_words.size() > 0:
+		var target_word = target_words[current_word_index]
 		var last_spoken_word = spoken_words[spoken_words.size() - 1]
 
-		print("Expected: '", target_word, "' | Got: '", partial_text, "'")
-
 		if _words_match(last_spoken_word, target_word):
-			print("✅ CORRECT! Word matched!")
+			print("✅ CORRECT! Single word matched!")
 			_on_word_recognized()
 			return
 		else:
 			# Debug: show why it didn't match
 			var similarity = _calculate_similarity(last_spoken_word, target_word)
-			if similarity < 0.7 and not _are_homophones(last_spoken_word, target_word):
+			if similarity < 0.5 and not _are_homophones(last_spoken_word, target_word):
 				print("⚠️ Last word '", last_spoken_word, "' doesn't match '", target_word, "' (similarity: ", int(similarity * 100), "%)")
 
 	last_partial_text = partial_text
+
+func _check_multiple_words_match(spoken_words: Array) -> int:
+	"""Check if multiple spoken words match consecutive target words starting from current index"""
+	if spoken_words.size() == 0:
+		return 0
+
+	var matched_count = 0
+	var remaining_target_words = target_words.size() - current_word_index
+
+	# Try to match as many words as possible in sequence
+	for i in range(min(spoken_words.size(), remaining_target_words)):
+		var spoken_word = spoken_words[i]
+		var target_word = target_words[current_word_index + i]
+
+		if _words_match(spoken_word, target_word):
+			matched_count += 1
+		else:
+			# Stop at first non-match
+			break
+
+	# Only return match if we got at least 2 words (otherwise single word matching handles it)
+	return matched_count if matched_count >= 2 else 0
 
 func _on_word_recognized():
 	"""Called when current word is successfully recognized"""

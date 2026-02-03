@@ -12,6 +12,9 @@ const USER_SETTINGS_PATH := "user://settings.cfg"
 # Set by PauseManager before changing to this scene
 static var opened_from_pause := false
 
+# Signal emitted when back button is pressed from pause menu
+signal back_pressed
+
 @onready var text_speed_slider = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/TextSpeedContainer/TextSpeedSlider
 @onready var text_speed_value = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/TextSpeedContainer/TextSpeedValue
 @onready var auto_advance_check = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/AutoAdvanceContainer/AutoAdvanceCheck
@@ -155,10 +158,14 @@ func _on_fullscreen_toggled(enabled: bool) -> void:
 	save_settings()
 
 func _on_back_pressed() -> void:
+	print("Settings back button pressed. opened_from_pause: ", opened_from_pause)
 	if opened_from_pause:
-		# Restore game state from temporary save
+		# Signal that we're going back (PauseManager will handle cleanup)
 		opened_from_pause = false
-		Dialogic.Save.load("_pause_temp")
+		print("Emitting back_pressed signal")
+		back_pressed.emit()
+		print("Signal emitted")
 	else:
 		# Return to main menu
+		print("Going back to main menu")
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

@@ -31,13 +31,42 @@ func _on_timeline_ended() -> void:
 		_resume_game()
 
 func _input(event: InputEvent) -> void:
+	# Quick Save (F5)
+	if event.is_action_pressed("quick_save") and pause_enabled and not is_paused:
+		_quick_save()
+		get_viewport().set_input_as_handled()
+		return
+
+	# Quick Load (F9)
+	if event.is_action_pressed("quick_load") and pause_enabled and not is_paused:
+		_quick_load()
+		get_viewport().set_input_as_handled()
+		return
+
+	# Pause/Resume (ESC)
 	if event.is_action_pressed("ui_cancel"):
+		# Check if save/load screen is open - if so, don't handle ESC here
+		if _is_save_load_screen_active():
+			return
+
 		if is_paused:
 			_resume_game()
 			get_viewport().set_input_as_handled()
 		elif pause_enabled:
 			_pause_game()
 			get_viewport().set_input_as_handled()
+
+## Check if a save/load screen is currently active
+func _is_save_load_screen_active() -> bool:
+	# Check if any save/load screen exists in the scene tree
+	for node in get_tree().root.get_children():
+		if node is CanvasLayer:
+			for child in node.get_children():
+				if child.get_script() and child.get_script().resource_path.ends_with("save_load_screen.gd"):
+					return true
+		elif node.get_script() and node.get_script().resource_path.ends_with("save_load_screen.gd"):
+			return true
+	return false
 
 func _pause_game() -> void:
 	if is_paused:
@@ -82,30 +111,116 @@ func _on_resume() -> void:
 	_resume_game()
 
 func _on_settings() -> void:
-	# Save current game state to a temporary slot
-	Dialogic.Save.save(TEMP_SAVE_SLOT, false, Dialogic.Save.ThumbnailMode.NONE)
+	# Don't use Dialogic.Save - it causes freed instance errors when returning
+	# Instead, just load settings scene on top of the current scene
 
-	# Set flag so settings menu knows to load the temp save when returning
+	# Hide pause menu but keep is_paused true so game stays frozen
+	if pause_menu_instance and is_instance_valid(pause_menu_instance):
+		pause_menu_instance.hide()
+
+	# Set flag so settings menu knows it was opened from pause
 	var SettingsMenu = load("res://scripts/settings_menu.gd")
 	SettingsMenu.opened_from_pause = true
 
-	# Clean up pause menu
-	_resume_game()
+	# Load settings scene on top (don't change scene, just instantiate)
+	var settings_scene = load("res://scenes/ui/settings_menu.tscn")
+	var settings_instance = settings_scene.instantiate()
 
-	# End timeline and go to settings
-	Dialogic.end_timeline()
-	get_tree().change_scene_to_file("res://scenes/ui/settings_menu.tscn")
+	# Add to a high-layer CanvasLayer
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 102  # Higher than pause menu (100)
+	canvas_layer.add_child(settings_instance)
+	get_tree().root.add_child(canvas_layer)
+
+	# Connect the signal - it's available immediately after instantiation
+	if settings_instance.has_signal("back_pressed"):
+		settings_instance.back_pressed.connect(_on_settings_back.bind(canvas_layer))
+		print("Settings back_pressed signal connected successfully")
+	else:
+		print("ERROR: Settings instance doesn't have back_pressed signal!")
+
+func _on_settings_back(canvas_layer: CanvasLayer) -> void:
+	# Clean up settings scene
+	if is_instance_valid(canvas_layer):
+		canvas_layer.queue_free()
+
+	# Show pause menu again
+	if pause_menu_instance and is_instance_valid(pause_menu_instance):
+		pause_menu_instance.show()
+		# Refocus on resume button
+		var resume_button = pause_menu_instance.get_node_or_null("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResumeButton")
+		if resume_button:
+			resume_button.grab_focus()
 
 func _on_main_menu() -> void:
 	# Save game progress before returning to main menu
 	Dialogic.Save.save("continue_save", false, Dialogic.Save.ThumbnailMode.NONE)
 	PlayerStats.save_stats()
 
-	_resume_game()
-	# End the current timeline and go to main menu
+	# Clean up any active minigame before going to main menu
+	if MinigameManager and MinigameManager.current_minigame:
+		if is_instance_valid(MinigameManager.current_minigame):
+			MinigameManager.current_minigame.queue_free()
+		MinigameManager.current_minigame = null
+		print("Cleaned up active minigame before going to main menu")
+
+	# End the current timeline FIRST to properly clean up Dialogic state
 	Dialogic.end_timeline()
+
+	# Wait a frame to ensure Dialogic cleanup is complete
+	await get_tree().process_frame
+
+	# Clean up pause menu
+	_resume_game()
+
+	# Now change to main menu
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 # Called by settings menu to restore game state
 static func restore_from_pause() -> void:
 	Dialogic.Save.load(TEMP_SAVE_SLOT)
+
+# Quick Save functionality
+func _quick_save() -> void:
+	if not SaveManager:
+		_show_notification("Save System Not Ready!", Color.RED)
+		return
+
+	var success = await SaveManager.quick_save()
+	if success:
+		_show_notification("Quick Saved!", Color.GREEN)
+	else:
+		_show_notification("Quick Save Failed!", Color.RED)
+
+# Quick Load functionality
+func _quick_load() -> void:
+	if not SaveManager:
+		_show_notification("Save System Not Ready!", Color.RED)
+		return
+
+	if not SaveManager.has_save(SaveManager.QUICKSAVE_SLOT):
+		_show_notification("No Quick Save Found!", Color.ORANGE)
+		return
+
+	var success = await SaveManager.quick_load()
+	if success:
+		_show_notification("Quick Loaded!", Color.GREEN)
+	else:
+		_show_notification("Quick Load Failed!", Color.RED)
+
+# Show a temporary notification on screen
+func _show_notification(text: String, color: Color) -> void:
+	var label = Label.new()
+	label.text = text
+	label.add_theme_font_size_override("font_size", 24)
+	label.modulate = color
+
+	# Position at top center
+	label.position = Vector2(get_viewport().get_visible_rect().size.x / 2 - 100, 50)
+
+	get_tree().root.add_child(label)
+
+	# Fade out and remove
+	var tween = get_tree().create_tween()
+	tween.tween_property(label, "modulate:a", 0.0, 1.5).set_delay(1.5)
+	tween.tween_callback(label.queue_free)

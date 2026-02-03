@@ -28,7 +28,7 @@
 },
 "half": {
 "export_overrides": {
-"image": "\"res://Sprites/Victor_half.png\""
+"image": "\"res://Characters/Victor.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

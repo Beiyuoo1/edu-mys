@@ -56,6 +56,8 @@ Conrad: He sent a picture? Wait a minute.
 Conrad: I don't have any mobile data left. How did I receive this photo?
 [background arg="res://Pics/Wifi_Faculty.png" fade="0.2"]
 Conrad: I'm connected to "Faculty_Wifi".
+"Conrad (Thinking)": That's strange, i don't remember connected to this network. What should i do?
+[signal arg="start_minigame wifi_router"]
 [background arg="res://Bg/faculty_few.png" fade="0.0"]
 join Conrad (half) left
 Conrad: Sir, does this room have a dedicated Wi-Fi router?
@@ -71,6 +73,8 @@ Principal: Interesting. Two devices connected to the "Faculty_Wifi" network yest
 Principal: One connected at 8\:00 PM, device name "Galaxy_A52". The other at 9\:00 PM, device name "Redmi_Note_10".
 [signal arg="unlock_evidence wifi_logs_c1"]
 Conrad: Galaxy A52 and Redmi Note 10... Those are specific models.
+Conrad: Exactly. It's a significant addition to my clues.
+[signal arg="unlock_evidence wifi_logs_c1"]
 Conrad: I need to confirm who owns these.
 [background arg="res://Bg/faculty_few.png" fade="0.0"]
 join Principal right
@@ -109,6 +113,7 @@ leave Alice [animation="Slide To Left"]
 join "Diwata Laya" (Half_mirror) right
 [signal arg="laya_start"]
 "Diwata Laya": It's alright you can do this.
+[signal]
 Conrad: Looks like you're awake. I've narrowed it down to two students.
 "Diwata Laya": Last time, it took me too much energy so I had to rest. I've recovered mostly but the help I can give is limited.
 Conrad: This case is kinda rough though, I really need your help.

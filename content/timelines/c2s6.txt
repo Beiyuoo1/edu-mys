@@ -1,0 +1,173 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c2s6
+Source: c2s6.dtl
+================================================================================
+
+
+[SCENE: COUNCIL_ROOM]
+
+
+The Student Council room looks different now. Afternoon light streams through the windows, warm and hopeful.
+[Conrad enters]
+[Mark enters]
+
+Mark: I heard Ryan turned himself in to the principal this morning.
+
+Conrad: He did the right thing. Eventually.
+
+Mark: What's going to happen to him?
+
+Conrad: The principal decided on counseling instead of expulsion. And community service.
+
+Conrad: He'll be helping organize the supply distribution for the students Ria was trying to help.
+
+Mark: That's... actually fitting. Make him understand what he almost destroyed.
+
+Conrad: Twenty thousand pesos. Twelve students who needed help.
+
+Conrad: He was so focused on being right that he forgot about the people who would get hurt.
+
+Mark: Ria stopped by earlier, by the way.
+
+Conrad: I heard. How is she?
+
+Mark: Better. She wanted to thank us but was too nervous to find you herself.
+
+Mark: She said she'll be more careful with the money from now on. Double-check everything.
+
+Mark: And she'll speak up if something feels wrong. No more keeping secrets out of fear.
+
+Conrad: That's all we can ask for.
+
+The room falls quiet. Conrad notices something on the table that wasn't there before.
+
+A small, elegant card rests on the surface, its edges crisp and clean.
+
+Conrad: What's this?
+
+Conrad picks it up, examining it with curiosity.
+
+Mark: Another one? Like after the last case?
+
+Conrad reads the card aloud.
+
+Conrad: "Lesson 2: Responsibility."
+
+Conrad: "True responsibility isn't about pointing out others' failures."
+
+Conrad: "It's about building trust, even when no one is watching."
+
+Mark: That's... actually pretty deep.
+
+He continues reading.
+
+Conrad: "The one who manipulates in the name of righteousness is still a manipulator."
+
+Conrad: "Well done, detectives. The chain continues."
+
+Conrad: "Signed... B.C."
+
+Mark: B.C. again. Just like the note from the first case.
+
+Mark: Who is this person? How do they keep leaving these notes?
+[Diwata enters]
+
+[EVENT: laya_start]
+
+
+"Diwata Laya" appears, studying the card with ancient eyes.
+
+Diwata Laya: B.C. The same presence I sensed before.
+
+Diwata Laya: They are watching your progress. Testing you, perhaps.
+
+Diwata Laya: "The chain continues." There will be more mysteries to solve.
+
+Conrad: Do you know who B.C. is?
+
+"Diwata Laya" shakes her head slowly.
+
+Diwata Laya: Even I cannot see them clearly. They move between moments, leaving only traces.
+
+Diwata Laya: But I sense no malice. Only... purpose. A lesson being taught, across time.
+
+[EVENT: laya_end]
+
+[Diwata leaves]
+
+Mark: So we have a mysterious teacher watching us solve crimes.
+
+Mark: That's not creepy at all.
+
+Conrad: Whoever B.C. is, they're not just leaving clues. They're guiding us toward something.
+
+Conrad: Each case teaches us a lesson. Each lesson builds on the last.
+
+Mark: First lesson was about truth. This one was about responsibility.
+
+Mark: I wonder what's next.
+[set {conrad_level} = 4]
+
+[LEVEL UP ANIMATION]
+
+
+Conrad: We'll find out when we're meant to.
+
+Conrad stares at the note, deep in thought.
+
+Conrad: Every case, we learn something new. About others. About ourselves.
+
+Conrad: Ryan thought he was being responsible. Protecting the school from carelessness.
+
+Conrad: But real responsibility isn't about controlling others or proving them wrong.
+
+Mark: It's about what you do when no one else is looking.
+
+Conrad nods.
+
+Conrad: Ria checked that lockbox every day. Counted every peso. Not because anyone was watching.
+
+Conrad: Because she remembered what it felt like to need help. And she wanted to be there for others.
+
+Mark: That's the real difference, isn't it?
+
+Mark: Ryan wanted to be seen as responsible. Ria just... was.
+
+Conrad: Exactly.
+
+Mark tries to lighten the mood.
+
+Mark: Deep thoughts, Conrad. You're getting philosophical on me.
+
+Conrad: Just thinking out loud.
+
+A comfortable silence settles between them.
+
+Conrad: Come on. Let's go get some lunch. I'm starving.
+
+Mark: Some things never change.
+
+They share a laugh as they head toward the door.
+
+Conrad pauses at the door.
+
+Conrad: Hey, Mark?
+
+Mark: Yeah?
+
+Conrad: Thanks for believing in me. For taking these cases seriously.
+
+Mark grins.
+
+Mark: What are partners for?
+
+Conrad: Partners. I like the sound of that.
+
+They leave the room together, their footsteps echoing down the hallway.
+[Conrad leaves]
+[Mark leaves]
+
+The B.C. card remains on the table, catching the last rays of afternoon sunlight.
+
+The chain continues.
+[JUMP TO: c3s0/]

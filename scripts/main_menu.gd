@@ -5,9 +5,13 @@ extends Control
 @onready var settings_button = $CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons/SettingsButton
 @onready var quit_button = $CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons/QuitButton
 
+const SAVE_LOAD_SCREEN = preload("res://scenes/ui/save_load_screen.tscn")
+
 func _ready() -> void:
-	# Check if a Dialogic save exists to enable/disable continue button
+	# Check if any saves exist to enable/disable continue button
 	var has_save = Dialogic.Save.has_slot("continue_save")
+	if SaveManager:
+		has_save = has_save or SaveManager.has_any_save()
 	continue_button.disabled = not has_save
 
 	# Connect button signals
@@ -27,6 +31,9 @@ func _input(event: InputEvent) -> void:
 func _on_new_game_pressed() -> void:
 	# Reset player stats for new game
 	PlayerStats.reset_stats()
+
+	# Reset evidence for new game
+	EvidenceManager.reset_evidence()
 
 	# Clear any existing continue save to start fresh
 	if Dialogic.Save.has_slot("continue_save"):
@@ -50,15 +57,10 @@ func _on_new_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/subject_selection.tscn")
 
 func _on_continue_pressed() -> void:
-	# Load saved game stats
-	PlayerStats.load_stats()
-
-	# Set flag so game scene knows to load save instead of starting fresh
-	var GameScene = load("res://node_2d.gd")
-	GameScene.load_continue_save = true
-
-	# Switch to game scene (it will load the save in _ready)
-	get_tree().change_scene_to_file("res://node_2d.tscn")
+	# Show load screen for player to choose which save to load
+	var load_screen = SAVE_LOAD_SCREEN.instantiate()
+	get_tree().root.add_child(load_screen)
+	load_screen.set_mode(1)  # LOAD mode
 
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/settings_menu.tscn")

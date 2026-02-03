@@ -1,0 +1,148 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c2s4
+Source: c2s4.dtl
+================================================================================
+
+
+[SCENE: COMPUTER_LAB]
+
+
+The computer lab is empty now. The printer sits in the corner, its paper tray half-full.
+[Conrad enters]
+[Mark enters]
+
+Mark heads toward the printer while Conrad examines the room.
+
+Mark: Let me check the reject tray. If the printer was jamming, there might be messed up prints.
+
+Mark rummages through the small compartment beneath the printer.
+
+Mark: Here! A crumpled paper. It looks like... yeah, it's a budget proposal draft.
+
+Conrad takes the paper and carefully smooths it out on a nearby desk.
+
+Conrad: "Student Council Budget Reallocation Proposal - Draft 3."
+
+Conrad: He was working on this for a while. Look at all these revision marks.
+
+Mark: What's that in the margin?
+
+Conrad peers closely at the handwritten notes scrawled along the edge.
+
+He reads the margin notes aloud.
+
+Conrad: "If they won't listen, I'll have to make them see reason."
+
+Mark: That sounds like a threat.
+
+Conrad: Or a declaration of intent.
+
+Conrad pulls out the threatening note Ria gave them and places it beside the budget draft.
+
+Conrad holds both papers side by side, comparing them carefully.
+
+Conrad: Look at the letter 'e'. The same small loop at the bottom.
+
+Conrad: And the 'k' in 'know' matches the 'k' in 'make'. Same sharp angle.
+
+Mark: The handwriting matches?
+
+Conrad: It's not just similar. It's identical. The same careful strokes. The same deliberate style.
+
+Conrad: Ryan wrote the threatening note to Ria.
+
+Mark: He wanted her scared and distracted.
+
+Conrad: So when the money went missing, everyone would suspect her first.
+
+Conrad: She was too afraid to defend herself. The perfect scapegoat.
+[Diwata enters]
+
+[EVENT: laya_start]
+
+
+"Diwata Laya" materializes, her expression troubled.
+
+Diwata Laya: Before we proceed, test your knowledge. Complete this challenge.
+
+[MINIGAME: curriculum:fillinblank]
+
+
+Diwata Laya: Good. Your understanding deepens. You grow stronger.
+[set {conrad_level} = 3]
+
+[LEVEL UP ANIMATION]
+
+
+Diwata Laya: Now let me see if I can sense his full intention.
+
+"Diwata Laya" closes her eyes, her hands hovering over both papers.
+
+For a moment, her form flickers with soft light.
+
+Diwata Laya: I see... a plan. Careful steps, like pieces on a game board.
+
+Diwata Laya: First, the threat. Create fear in the treasurer.
+
+Diwata Laya: Then, the theft. Take the money while suspicion falls elsewhere.
+
+Diwata Laya: But the plan doesn't end there...
+
+"Diwata Laya" opens her eyes slowly.
+
+Diwata Laya: He was going to become the hero.
+
+[EVENT: laya_end]
+
+
+Conrad: What do you mean?
+
+[EVENT: laya_start]
+
+
+Diwata Laya: I saw him in the vision. Returning the money himself. "Finding" it somewhere.
+
+Diwata Laya: He wanted everyone to praise his responsibility. His diligence.
+
+Diwata Laya: And then... propose his own budget. Show how much better he could manage things.
+
+[EVENT: laya_end]
+
+[Diwata leaves]
+
+Mark: He was going to "discover" the money and look like a hero?
+
+Conrad: While proving that the council is careless and needs better systems.
+
+Conrad: His systems. His budget. His vision.
+
+Mark: That's... actually kind of clever. In a twisted way.
+
+Conrad: It's manipulation disguised as righteousness.
+
+Conrad: He convinced himself he was teaching everyone a lesson.
+
+Conrad: But what he really did was terrorize an innocent girl and steal money meant for students who needed it.
+
+Mark: So what now? We confront him?
+
+Conrad: We have motive. We have opportunity. And now we have his handwriting connecting him to the threat.
+
+Conrad: The only thing missing is the money itself.
+
+Conrad: If we find where he hid it, the case is closed.
+
+Mark: Where would he hide twenty thousand pesos?
+
+Conrad: Somewhere he has access. Somewhere others don't go often.
+
+Conrad: He mentioned printing documents yesterday. But he also has access to...
+
+Mark: The sports equipment storage! He's on the athletic committee.
+
+Conrad: That room is rarely used this time of year. The perfect hiding spot.
+
+Conrad: Let's end this.
+[Conrad leaves]
+[Mark leaves]
+[JUMP TO: c2s5/]
