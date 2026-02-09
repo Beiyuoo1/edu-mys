@@ -23,6 +23,11 @@ var last_minigame_speed_bonus: bool = false
 # Track if last minigame succeeded or failed (for ChapterStatsTracker)
 var last_minigame_success: bool = true
 
+# ============================================
+# TEMPORARY: Set to true to disable Vosk and test other game features
+const DISABLE_VOSK = false
+# ============================================
+
 # Preloaded Vosk recognizer for dialogue choice minigame
 var shared_vosk_recognizer = null
 var vosk_loading_progress: float = 0.0  # 0.0 to 1.0
@@ -33,6 +38,11 @@ const VOSK_SAMPLE_RATE = 16000.0
 var loading_screen_scene = preload("res://scenes/ui/vosk_loading_screen.tscn")
 
 func _ready():
+	if DISABLE_VOSK:
+		print("MinigameManager: ⚠️ VOSK DISABLED - Skipping voice recognition loading")
+		vosk_is_loaded = false  # Mark as not loaded
+		return
+
 	print("MinigameManager: Starting Vosk preload with loading screen...")
 	_show_loading_screen_and_load()
 
@@ -2898,6 +2908,14 @@ func _start_maze(puzzle_id: String) -> void:
 
 func _start_pronunciation(puzzle_id: String) -> void:
 	print("DEBUG: Starting Pronunciation minigame...")
+
+	# Auto-complete if Vosk is disabled
+	if DISABLE_VOSK:
+		print("⚠️ Vosk disabled - Auto-completing Pronunciation minigame")
+		await get_tree().create_timer(0.5).timeout  # Small delay for realism
+		_on_minigame_finished(true, 100, puzzle_id)  # Pass success, score, puzzle_id
+		return
+
 	current_minigame = pronunciation_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(pronunciation_configs[puzzle_id])
@@ -2961,6 +2979,14 @@ func _start_curriculum_minigame(minigame_type: String) -> void:
 
 func _start_dialogue_choice(puzzle_id: String) -> void:
 	print("DEBUG: Starting Dialogue Choice minigame: ", puzzle_id)
+
+	# Auto-complete if Vosk is disabled
+	if DISABLE_VOSK:
+		print("⚠️ Vosk disabled - Auto-completing Dialogue Choice minigame")
+		await get_tree().create_timer(0.5).timeout  # Small delay for realism
+		_on_dialogue_choice_finished(true, puzzle_id)
+		return
+
 	var config = dialogue_choice_configs[puzzle_id]
 	print("DEBUG: Question being shown: ", config.get("question", "Unknown question"))
 	current_minigame = dialogue_choice_scene.instantiate()
@@ -2979,6 +3005,14 @@ func _on_dialogue_choice_finished(success: bool, puzzle_id: String) -> void:
 
 func _start_hear_and_fill(puzzle_id: String) -> void:
 	print("DEBUG: Starting Hear and Fill minigame...")
+
+	# Auto-complete if Vosk is disabled (Hear and Fill uses TTS, not Vosk, but disable for consistency)
+	if DISABLE_VOSK:
+		print("⚠️ Vosk disabled - Auto-completing Hear and Fill minigame")
+		await get_tree().create_timer(0.5).timeout  # Small delay for realism
+		_on_hear_and_fill_finished(true, puzzle_id)
+		return
+
 	var config = hear_and_fill_configs[puzzle_id]
 	current_minigame = hear_and_fill_scene.instantiate()
 	get_tree().root.add_child(current_minigame)

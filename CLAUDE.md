@@ -1335,6 +1335,45 @@ Character: Question text?
 }
 ```
 
+### Save/Load Screen Signal Connection Error
+**Fixed:** Save/load screen no longer throws "Signal already connected" errors
+- Previously `pressed` signals were being connected multiple times (from scene editor or repeat calls)
+- Error: "Signal 'pressed' is already connected to given callable"
+- Now checks `is_connected()` before attempting to connect signals
+- Fixed in `scripts/save_load_screen.gd` for close button and tab buttons
+- Prevents duplicate signal connections and related errors
+
+### Save Loading Robustness (Dialogic State Failure Handling)
+**Fixed:** Save loading no longer fails completely when Dialogic state is corrupted/incompatible
+- Previously would fail with "Failed to load Dialogic state from slot X" and abort the entire load
+- Issue occurred when saves were created before code changes (e.g., Vosk disable flag)
+- Now uses `push_warning()` instead of `push_error()` and continues loading
+- PlayerStats and Evidence data still restored even if Dialogic timeline position is lost
+- User may need to restart chapter from main menu but stats/evidence are preserved
+- Fixed in `autoload/save_manager.gd` at line 144
+
+### Dialogic Variable Declaration Error
+**Fixed:** Timeline error "Invalid named index 'selected_character' for base type Object"
+- Variable `selected_character` was used in timeline `c1s1.dtl` but not declared in project settings
+- Added `"selected_character": ""` to Dialogic variables section in `project.godot`
+- Character selection system now works properly without parse errors
+
+### Chapter 1 Dialogue Location Continuity Error
+**Fixed:** Chapter 1 Scene 2 dialogue now correctly references storage room instead of classroom
+- Lines 16 and 86 in `content/timelines/Chapter 1/c1s2.dtl` said "went to the classroom"
+- Background image shows storage room, not classroom (continuity error)
+- Changed both instances to "went to the storage room"
+- Story flow now matches visual environment
+
+### Vosk Troubleshooting: Temporary Disable Flag
+**Note:** A `DISABLE_VOSK` flag exists in `autoload/minigame_manager.gd` for troubleshooting
+- Set to `false` by default (Vosk enabled)
+- If Vosk model fails to load, can be set to `true` to test other game features
+- When disabled: voice recognition minigames auto-complete after 0.5 seconds
+- When disabled: loading screen is skipped, no Vosk initialization occurs
+- See `VOSK_DISABLE_INSTRUCTIONS.md` for complete usage guide
+- This is a temporary development/testing flag, not a user-facing feature
+
 ## Story Structure: The B.C. Card System
 
 The game features an overarching mystery that ties all chapters together through the **B.C. Card** system.

@@ -13,7 +13,7 @@ if {selected_character} == "celestine":
 	leave Celestine [animation="Instant Out"]
 	[background arg="res://Bg/storage room front door.png" fade="0.0"]
 	...
-	Celestine immediately went to the classroom
+	Celestine immediately went to the storage room
 	her chest tightening with every step. When she reached the door, she froze.
 	join Celestine (half) left
 	Celestine: (Okay, Celestine, get it together)
@@ -83,7 +83,7 @@ else:
 	leave Conrad [animation="Instant Out"]
 	[background arg="res://Bg/storage room front door.png" fade="0.0"]
 	...
-	Conrad immediately went to the classroom
+	Conrad immediately went to the storage room
 	his chest tightening with every step. When he reached the door, he froze.
 	join Conrad (half) left
 	Conrad: (Okay, Conrad, get it together)

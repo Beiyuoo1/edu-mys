@@ -165,6 +165,7 @@ variables={
 "hint_count": 0,
 "minigames_completed": 0,
 "retry_count": 0,
+"selected_character": "",
 "selected_subject": "",
 "time_bonus": 0
 }

@@ -25,14 +25,14 @@ func _ready() -> void:
 	# Load save slot button scene dynamically
 	save_slot_button_scene = load("res://scenes/ui/save_slot_button.tscn")
 
-	# Connect close button
-	if close_button:
+	# Connect close button (check if not already connected)
+	if close_button and not close_button.pressed.is_connected(_on_close_button_pressed):
 		close_button.pressed.connect(_on_close_button_pressed)
 
-	# Connect tab buttons
-	if manual_saves_tab:
+	# Connect tab buttons (check if not already connected)
+	if manual_saves_tab and not manual_saves_tab.pressed.is_connected(_on_manual_saves_tab_pressed):
 		manual_saves_tab.pressed.connect(_on_manual_saves_tab_pressed)
-	if auto_saves_tab:
+	if auto_saves_tab and not auto_saves_tab.pressed.is_connected(_on_auto_saves_tab_pressed):
 		auto_saves_tab.pressed.connect(_on_auto_saves_tab_pressed)
 
 	update_title()

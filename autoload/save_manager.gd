@@ -141,9 +141,9 @@ func load_game(slot_id: int) -> bool:
 	if Dialogic.Save.has_slot(slot.dialogic_slot_name):
 		var dialogic_loaded = Dialogic.Save.load(slot.dialogic_slot_name)
 		if not dialogic_loaded:
-			push_error("Failed to load Dialogic state from slot " + str(slot_id))
-			is_loading_save = false
-			return false
+			push_warning("Failed to load Dialogic state from slot " + str(slot_id) + " (possibly incompatible save)")
+			push_warning("Continuing load with PlayerStats and Evidence only - you may need to restart from main menu")
+			# Don't fail the entire load - PlayerStats and Evidence will still be restored
 	else:
 		push_warning("No Dialogic save found for slot " + str(slot_id) + ", skipping Dialogic load")
 
